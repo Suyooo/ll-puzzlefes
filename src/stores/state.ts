@@ -27,17 +27,17 @@ export function createState(key: string) {
 let activeTimerKey: string | null = null;
 let activeTimerStart: number = 0;
 
-function startTimer(key: string) {
+export function startTimer(key: string) {
     endTimer();
     activeTimerKey = key;
     activeTimerStart = Date.now();
 }
 
-function endTimer() {
-    if (activeTimerKey === undefined) return;
+export function endTimer() {
+    if (activeTimerKey === null) return;
     const key = activeTimerKey;
     const elapsedTime = Date.now() - activeTimerStart;
-    activeTimerKey = undefined;
+    activeTimerKey = null;
 
     STATES.update(states => {
         states[key].totalTime += elapsedTime;
@@ -45,4 +45,4 @@ function endTimer() {
     });
 }
 
-window.onclose = endTimer;
+window.onbeforeunload = endTimer;

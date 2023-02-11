@@ -2,7 +2,8 @@
     import Spinner from "$lib/Spinner.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
     import {timeFormat} from "$lib/timeFormat.js";
-    import {createState, STATES} from "$stores/state";
+    import {createState, endTimer, startTimer, STATES} from "$stores/state";
+    import {onDestroy} from "svelte";
     import {fade} from "svelte-reduced-motion/transition";
 
     export let key: string;
@@ -14,7 +15,7 @@
     }
 
     let answer: HTMLInputElement, imagePromise: Promise<string>, justSolved: boolean = false,
-        showExplain: boolean = false, showLoc: boolean = false;
+        showExplain: boolean = false, showLoc: boolean = false, blockTimerStart: boolean = false;
     $: {
         // https://stackoverflow.com/a/20285053/1381397
         imagePromise = fetch(url)
@@ -27,6 +28,9 @@
                 reader.onerror = reject;
                 reader.readAsDataURL(blob);
                 document.scrollingElement.scrollTop = 0;
+                if (!blockTimerStart && !$STATES[key].solved) {
+                    startTimer(key);
+                }
             }));
     }
 
@@ -35,6 +39,7 @@
         if (submittedAnswer === solution) {
             justSolved = true;
             document.scrollingElement.scrollTop = 0;
+            endTimer();
 
             if (!$STATES[key].solved) {
                 STATES.update(states => {
@@ -58,6 +63,11 @@
             }
         }
     }
+
+    onDestroy(() => {
+        blockTimerStart = true;
+        endTimer();
+    });
 </script>
 
 {#key justSolved}
@@ -79,13 +89,13 @@
                         <PageButton label="Submit" on:click={submit}>Submit</PageButton>
                     </div>
                 </div>
-            {:catch _}
-                There was a problem loading the puzzle. Please try again!
+            {:catch e}
+                There was a problem loading the puzzle. Please try again! {@html e.stack.replace(/\n/g, "<br>")}
             {/await}
         {:else}
             <div class="text-3xl tracking-widest uppercase text-primary-400 -mb-8">Congratulations!</div>
             <div class="text-[6rem] tracking-widest uppercase font-bold text-amber-400">CORRECT</div>
-            <div class="text-xl">You solved the puzzle in {timeFormat(0)}!</div>
+            <div class="text-xl">You solved the puzzle in {timeFormat($STATES[key].totalTime)}!</div>
         {/if}
 
         <div class="pt-6 w-full max-w-md">
