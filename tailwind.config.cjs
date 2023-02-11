@@ -5,6 +5,9 @@ module.exports = {
     content: ["index.html", "./src/**/*.{html,js,svelte,ts}"],
     theme: {
         extend: {
+            maxWidth: {
+                's2': '16rem',
+            },
             minHeight: {
                 '8': '2rem',
             },
