@@ -18,7 +18,7 @@
          class:bg-gray-300={!disabled} class:bg-gray-500={disabled} class:hover:bg-gray-200={!disabled}
          class:outline-gray-300={!disabled} class:outline-gray-500={disabled}>
         <span class="rounded-full h-10 flex items-center justify-center basis-2/3 tracking-widest"
-              class:text-white={whiteText} style:background-color={disabled ? "#888" : color}>{name}</span>
+              class:text-white={whiteText || disabled} style:background-color={disabled ? "#888" : color}>{name}</span>
         <span class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2">
             {#if disabled}
                 <span class="text-white text-xs">Coming Soon</span>
