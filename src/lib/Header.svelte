@@ -3,7 +3,7 @@
     import Help from "$icon/Help.svelte";
     import Stats from "$icon/Statistics.svelte";
     import ModalAbout from "$lib/ModalAbout.svelte";
-    import ModalHelp from "$lib/ModalHelp.svelte";
+    import ModalHelp from "$lib/ModalPuzzleBase.svelte";
     import ModalStatistics from "$lib/ModalStatistics.svelte";
     import HeaderButton from "$lib/styled/HeaderButton.svelte";
     import {createEventDispatcher} from "svelte";

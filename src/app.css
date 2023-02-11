@@ -8,11 +8,11 @@
     }
 
     a {
-        @apply underline text-primary-300;
+        @apply underline text-primary-500;
     }
 
-    a:active {
-        @apply text-primary-100;
+    a:hover, a:active {
+        @apply text-primary-200;
     }
 
     *:focus-visible {
