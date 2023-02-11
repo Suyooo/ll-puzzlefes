@@ -5,11 +5,17 @@ module.exports = {
     content: ["index.html", "./src/**/*.{html,js,svelte,ts}"],
     theme: {
         extend: {
+            width: {
+                "3xl": "48rem",
+            },
+            minWidth: {
+                "sm": "24rem",
+            },
             maxWidth: {
-                's2': '16rem',
+                "s2": "16rem",
             },
             minHeight: {
-                '8': '2rem',
+                "8": "2rem",
             },
             colors: {
                 primary: {

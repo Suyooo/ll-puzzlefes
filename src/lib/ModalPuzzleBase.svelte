@@ -1,46 +1,60 @@
 <script lang="ts">
-    import Tutorial1 from "$icon/Tutorial1.svelte";
-    import Tutorial2 from "$icon/Tutorial2.svelte";
-    import Tutorial3 from "$icon/Tutorial3.svelte";
+    import Spinner from "$lib/Spinner.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
-    import {createEventDispatcher} from "svelte";
+    import {timeFormat} from "$lib/timeFormat.js";
+    import {fade} from "svelte-reduced-motion/transition";
 
-    const dispatch = createEventDispatcher<{ closemodal: undefined }>();
+    export let key: string;
+    export let url: string;
+    export let solution: string;
 
-    function closeModal() {
-        dispatch("closemodal");
+    let answer: string, imagePromise: Promise<string>, justSolved: boolean = false;
+    $: {
+        // https://stackoverflow.com/a/20285053/1381397
+        imagePromise = fetch(url)
+            .then(response => response.blob())
+            .then(blob => new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    resolve(reader.result);
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
+                document.scrollingElement.scrollTop = 0;
+            }));
+    }
+
+    function submit() {
+        if (answer.toLowerCase() === solution) {
+            justSolved = true;
+            document.scrollingElement.scrollTop = 0;
+        } else {
+            alert("um nah");
+        }
     }
 </script>
 
-<div class="flex flex-col space-y-4 items-center">
-    <div class="flex items-center space-x-4">
-        <div class="text-primary">
-            <Tutorial1/>
-        </div>
-        <div>
-            You will see a concealed image of an LL! album's cover art.
-            <span class="inline-block">Which one is it?</span>
-        </div>
+{#key justSolved}
+    <div class="flex flex-col space-y-4 items-center w-3xl max-w-3xl" in:fade>
+        {#if !justSolved}
+            {#await imagePromise}
+                <Spinner/>
+            {:then imageB64}
+                <img class="w-full" src={imageB64} alt="Puzzle"/>
+                <div class="max-w-md">
+                    <span class="text-xs tracking-widest uppercase font-bold text-primary-400">Enter Your Answer!</span>
+                    <div class="w-full flex items-center gap-x-2">
+                        <input class="flex-grow px-2 py-1 border-primary-400 border-2 rounded-full" bind:value={answer}>
+                        <PageButton label="Submit" on:click={submit}>Submit</PageButton>
+                    </div>
+                </div>
+            {:catch _}
+                There was a problem loading the puzzle. Please try again!
+            {/await}
+        {:else}
+            <span class="text-3xl tracking-widest uppercase text-primary-400 -mb-8">Congratulations!</span>
+            <span class="text-[6rem] tracking-widest uppercase font-bold text-amber-400">CORRECT</span>
+            <span class="text-xl">You solved the puzzle in {timeFormat(0)}!</span>
+        {/if}
     </div>
-    <div class="flex items-center space-x-4">
-        <div class="text-primary">
-            <Tutorial2/>
-        </div>
-        <div>
-            If you skip a turn or guess wrong, more parts or details of the picture
-            <span class="inline-block">are revealed!</span>
-        </div>
-    </div>
-    <div class="flex items-center space-x-4">
-        <div class="text-primary">
-            <Tutorial3/>
-        </div>
-        <div>
-            Find the correct answer in six turns, and share your result with
-            <span class="inline-block">your friends!</span>
-        </div>
-    </div>
-    <PageButton class="px-3" on:click={closeModal}>
-        Start!
-    </PageButton>
-</div>
+{/key}

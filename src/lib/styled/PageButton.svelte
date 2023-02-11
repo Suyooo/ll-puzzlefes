@@ -1,17 +1,17 @@
 <script lang="ts">
-    let extra: string = "";
-
     export let label: string | undefined = undefined;
     export let disabled: boolean = false;
-    // noinspection ReservedWordAsName
-    export {extra as class};
+    export let extraClasses: string | undefined = undefined;
 </script>
 
-<button aria-disabled={disabled} aria-label={label} class="h-8 flex items-center justify-center rounded p-1 uppercase tracking-widest select-none {extra}"
-        class:active:bg-primary-100={!disabled}
-        class:active:text-black={!disabled}
-        class:bg-gray-700={disabled} class:bg-primary-500={!disabled}
-        class:hover:bg-gray-700={disabled} class:hover:bg-primary-300={!disabled} on:click
+<button aria-disabled={disabled} aria-label={label}
+        class="h-8 flex items-center justify-center rounded-full px-4 py-2 uppercase tracking-widest select-none font-bold text-white {extraClasses ?? ""}"
+        class:active:bg-primary-700={!disabled}
+        class:active:text-white={!disabled}
+        class:bg-gray-500={disabled} class:bg-primary-400={!disabled}
+        class:hover:bg-gray-500={disabled} class:hover:bg-primary-200={!disabled} on:click
         title={label}>
-    <slot/>
+
+
+<slot/>
 </button>

@@ -1,6 +1,6 @@
 <script lang="ts">
     import Correct from "$icon/Correct.svelte";
-    import {timeFormat} from "$lib/timeFOrmat.js";
+    import {timeFormat} from "$lib/timeFormat.js";
     import {STATES} from "$stores/state.js";
 
     export let name: string;

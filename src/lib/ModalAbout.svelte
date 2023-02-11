@@ -1,4 +1,4 @@
-<div class="flex-col space-y-4">
+<div class="flex-col space-y-4 max-w-md">
     <div>
         This site and localized puzzles were made by Suyooo
         <ul class="list-disc list-inside ml-4 text-sm">
