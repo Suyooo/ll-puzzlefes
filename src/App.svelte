@@ -3,6 +3,7 @@
     import ModalAbout from "$lib/ModalAbout.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
+    import PageButton from "$lib/styled/PageButton.svelte";
     import {fade} from "svelte-reduced-motion/transition";
 
     let modalTitle: string = "";
@@ -77,7 +78,12 @@
         <MemberButton color="#B2FFDD" disabled name="Shiki"/>
         <MemberButton color="#FF51C4" disabled name="Natsumi"/>
     </div>
-    <div class="justify-self-end mb-4 text-xs text-gray-400">
+    <PageButton extraClasses="mt-4"
+                label="Visit Original Site"
+                on:click={() => window.open("https://lovelive-sif2.bushimo.jp/nazotoki/list.html", "_blank")}>
+        Visit Original Site
+    </PageButton>
+    <div class="justify-self-end mt-2 mb-4 text-xs text-gray-500">
         This site was made by Suyooo.
         <button class="underline" on:click={modal("About", ModalAbout)}>About</button>
     </div>
