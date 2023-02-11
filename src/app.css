@@ -4,7 +4,7 @@
 
 @layer base {
     html, body, body > div {
-        @apply w-full h-full text-gray-900 bg-gray-200;
+        @apply w-full h-full text-gray-900 bg-gradient-to-b from-gray-50 to-gray-200;
     }
 
     a {
