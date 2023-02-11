@@ -31,12 +31,12 @@
         </div>
     </div>
     <div class="w-full max-w-3xl flex-grow flex flex-wrap content-start">
-        <MemberButton color="#FFA336" name="Honoka" state="NEW!"/>
-        <MemberButton color="#7AEEFF" name="Eli" state="NEW!"/>
-        <MemberButton color="#CEBFBF" name="Kotori" state="NEW!"/>
-        <MemberButton color="#1769FF" name="Umi" state="NEW!" whiteText/>
-        <MemberButton color="#FFF832" disabled name="Rin" state="NEW!"/>
-        <MemberButton color="#FF503E" disabled name="Maki" state="NEW!"/>
+        <MemberButton color="#FFA336" name="Honoka"/>
+        <MemberButton color="#7AEEFF" name="Eli"/>
+        <MemberButton color="#CEBFBF" name="Kotori"/>
+        <MemberButton color="#1769FF" name="Umi" whiteText/>
+        <MemberButton color="#FFF832" disabled name="Rin"/>
+        <MemberButton color="#FF503E" disabled name="Maki"/>
         <div class="w-full h-8">&nbsp;</div>
     </div>
     <div class="justify-self-end mb-4 text-xs text-gray-400">

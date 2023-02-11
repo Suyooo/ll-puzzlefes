@@ -2,7 +2,7 @@
     import {default as autocomplete, VALID_GUESSES} from "$actions/autocomplete";
     import PageButton from "$lib/styled/PageButton.svelte";
     import isDesktop from "$modules/isDesktop";
-    import {ALBUM, STATE} from "$stores/state";
+    import {ALBUM, STATES} from "$stores/state";
     import {STATISTICS} from "$stores/statistics";
     import {getContext} from "svelte";
     import {fly} from "svelte-reduced-motion/transition";
@@ -54,20 +54,20 @@
     }
 
     function resolveTurn(guessOrSkip: string | null): void {
-        $STATE.guesses.push(guessOrSkip);
+        $STATES.guesses.push(guessOrSkip);
         if (input === ALBUM.artistEn + " - " + ALBUM.titleEn || input === ALBUM.artistJa + " - " + ALBUM.titleJa) {
-            $STATE.cleared = $STATE.finished = true;
-            STATISTICS.addFinishedState($STATE);
+            $STATES.cleared = $STATES.finished = true;
+            STATISTICS.addFinishedState($STATES);
         } else {
-            $STATE.failed++;
+            $STATES.failed++;
             skipDisabled = true;
             setTimeout(() => {
                 skipDisabled = false;
-            }, $STATE.failed < 5 ? 500 : 2000);
+            }, $STATES.failed < 5 ? 500 : 2000);
 
-            if ($STATE.failed >= 6) {
-                $STATE.finished = true;
-                STATISTICS.addFinishedState($STATE);
+            if ($STATES.failed >= 6) {
+                $STATES.finished = true;
+                STATISTICS.addFinishedState($STATES);
             } else {
                 input = "";
                 focusInputElement();
@@ -102,7 +102,7 @@
             Submit
         </PageButton>
         <PageButton class="w-32" disabled={skipDisabled || (input && input.length > 0)} on:click={skip}>
-            {#if $STATE.failed < 5}
+            {#if $STATES.failed < 5}
                 Skip Turn
             {:else}
                 Give Up

@@ -1,64 +1,48 @@
-import {ALBUM_POOL} from "$data/albumpool";
-import {GAME_POOL} from "$data/gamepool";
-import {CURRENT_DAY, getIdsForDay} from "$modules/daily";
-import {STATISTICS} from "$stores/statistics";
-import {readable, writable} from "svelte/store";
+import {writable} from "svelte/store";
 
-export interface PlayState {
-    day: number,
-    albumId: number,
-    gameId: number,
-    failed?: 0 | 1 | 2 | 3 | 4 | 5 | 6,
-    cleared?: boolean,
-    finished?: boolean,
-    guesses?: (string | null)[]
+export interface PuzzleState {
+    solved: boolean,
+    totalTime: number,
+    wrongGuesses: string[]
 }
 
-const loadedStates = INDEV ? undefined : localStorage.getItem("llalbum-states");
-const parsedStates: PlayState[] = loadedStates ? JSON.parse(loadedStates) : [];
-export const IS_FIRST_PLAY = parsedStates.length === 0;
+export const STATES = writable<{ [key: string]: PuzzleState }>(
+    JSON.parse(localStorage.getItem("llpuzzle-states")) ?? {});
 
-if (IS_FIRST_PLAY || CURRENT_DAY > parsedStates.at(-1)?.day) {
-    const prevState = parsedStates.at(-1);
-    if (prevState) {
-        if (!prevState.finished) {
-            prevState.finished = true;
-            STATISTICS.addFinishedState(prevState);
-        }
-        if (CURRENT_DAY - prevState.day > 1) {
-            STATISTICS.breakStreak();
-        }
-    }
+STATES.subscribe(states => {
+    localStorage.setItem("llpuzzle-states", JSON.stringify(states));
+});
 
-    // Add new day
-    const {rolledAlbumId, rolledGameId} = getIdsForDay(CURRENT_DAY);
-    parsedStates.push({
-        day: CURRENT_DAY,
-        albumId: rolledAlbumId,
-        gameId: rolledGameId,
-        failed: 0,
-        cleared: false,
-        finished: false,
-        guesses: []
+export function createState(key: string) {
+    STATES.update(states => {
+        states[key] = {
+            solved: false,
+            totalTime: 0,
+            wrongGuesses: []
+        };
+        return states;
     });
-    STATISTICS.addNewDay();
 }
 
-// No need to make these into stores: albumId and gameId never change unless refreshing on a new day
-export const ALBUM = ALBUM_POOL[parsedStates.at(-1).albumId];
-export const GAME = GAME_POOL[parsedStates.at(-1).gameId];
+let activeTimerKey: string | null = null;
+let activeTimerStart: number = 0;
 
-export const STATE = writable<PlayState>(parsedStates.at(-1));
+function startTimer(key: string) {
+    endTimer();
+    activeTimerKey = key;
+    activeTimerStart = Date.now();
+}
 
-STATE.subscribe(newState => {
-    parsedStates[parsedStates.length - 1] = newState;
-    if (!INDEV) localStorage.setItem("llalbum-states", JSON.stringify(parsedStates));
-});
+function endTimer() {
+    if (activeTimerKey === undefined) return;
+    const key = activeTimerKey;
+    const elapsedTime = Date.now() - activeTimerStart;
+    activeTimerKey = undefined;
 
-export const ALL_STATES = readable<PlayState[]>([], (set) => {
-    set(parsedStates);
-    const unsub = STATE.subscribe(() => set(parsedStates));
-    return () => {
-        unsub()
-    };
-});
+    STATES.update(states => {
+        states[key].totalTime += elapsedTime;
+        return states;
+    });
+}
+
+window.onclose = endTimer;
