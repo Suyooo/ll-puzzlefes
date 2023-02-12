@@ -1,7 +1,10 @@
 <script lang="ts">
     import Modal from "$lib/Modal.svelte";
     import ModalAbout from "$lib/ModalAbout.svelte";
+    import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
+    import PuzzleKotori from "$lib/puzzles/PuzzleKotori.svelte";
+    import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
     import {fade} from "svelte-reduced-motion/transition";
@@ -35,9 +38,9 @@
     </div>
     <div class="w-full max-w-3xl flex-grow flex flex-wrap content-start">
         <MemberButton color="#FFA336" name="Honoka" on:click={modal("Honoka's Puzzle", PuzzleHonoka)}/>
-        <MemberButton color="#7AEEFF" name="Eli"/>
-        <MemberButton color="#CEBFBF" name="Kotori"/>
-        <MemberButton color="#1769FF" name="Umi" whiteText/>
+        <MemberButton color="#7AEEFF" name="Eli" on:click={modal("Eli's Puzzle", PuzzleEli)}/>
+        <MemberButton color="#CEBFBF" name="Kotori" on:click={modal("Kotori's Puzzle", PuzzleKotori)}/>
+        <MemberButton color="#1769FF" name="Umi" on:click={modal("Umi's Puzzle", PuzzleUmi)} whiteText/>
         <MemberButton color="#FFF832" disabled name="Rin"/>
         <MemberButton color="#FF503E" disabled name="Maki"/>
         <MemberButton color="#C455F6" disabled name="Nozomi"/>
