@@ -17,11 +17,11 @@
 
 <svelte:window on:keydown={e => { if (e.key === "Escape") closeModal() }}/>
 
+<div class="fixed left-0 top-0 w-full bottom-0 bg-gray-900 bg-opacity-80" transition:fade={{duration: 300}}>&nbsp;</div>
 <!--
     svelte-ignore a11y-click-events-have-key-events
     Accessibility is handled with the key event above ^, and there's also an accessible close button as the alternative
 -->
-<div class="fixed left-0 top-0 w-full bottom-0 bg-gray-900 bg-opacity-80" transition:fade={{duration: 300}}>&nbsp;</div>
 <div class="absolute left-0 top-0 w-full bottom-0 flex items-start justify-center px-8 pt-24" on:click={closeModal}
      transition:fade={{duration: 300}} use:focusTrap>
     <div class="max-w-4xl bg-gray-50 rounded p-4 relative" on:click|stopPropagation={() => null}>
