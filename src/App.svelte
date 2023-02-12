@@ -28,7 +28,7 @@
 </script>
 
 <div class="relative flex flex-col w-full items-center" in:fade={{duration: 100}} tabindex="-1">
-    <div class="max-w-3xl my-8 flex items-center">
+    <div class="max-w-3xl px-2 my-8 flex items-center">
         <div class="basis-1/4 flex-shrink">
             <img alt="SIF2 Game Logo" class="w-full" src="/logo.png"/>
         </div>

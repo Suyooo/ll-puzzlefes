@@ -75,14 +75,15 @@
 </script>
 
 {#key justSolved}
-    <div class="flex flex-col space-y-4 items-center w-3xl max-w-3xl" in:fade>
+    <div class="flex flex-col space-y-4 items-center w-full max-w-3xl" in:fade>
         {#if !justSolved}
             {#await imagePromise}
                 <Spinner/>
             {:then image}
                 <img class="w-full" src={image} alt="Puzzle"/>
                 <div class="w-full max-w-md">
-                    <div class="text-xs tracking-widest uppercase font-bold text-primary-400 mb-1">Enter Your Answer!
+                    <div class="text-xs tracking-widest uppercase font-bold text-primary-400 mb-1 select-none">
+                        Enter Your Answer!
                     </div>
                     <div class="w-full flex items-center gap-x-2">
                         <input class="flex-grow px-2 pb-1 pt-0.5 border-primary-400 border-2 rounded-full"
@@ -95,7 +96,7 @@
                     </div>
                     {#if !$STATES[key].solved && $STATES[key].wrongGuesses.length > 0}
                         <div class="pt-6 w-full max-w-md">
-                            <div class="text-xs tracking-widest uppercase font-bold text-gray-500">
+                            <div class="text-xs tracking-widest uppercase font-bold text-gray-500 select-none">
                                 Previous Answers
                             </div>
                             {#each [...$STATES[key].wrongGuesses].reverse() as guess (guess)}
@@ -111,12 +112,14 @@
                 There was a problem loading the puzzle. Please try again! {@html e.stack.replace(/\n/g, "<br>")}
             {/await}
         {:else}
-            <div class="text-3xl tracking-widest uppercase text-primary-400 -mb-8">Congratulations!</div>
-            <div class="text-[6rem] tracking-widest uppercase font-bold text-amber-400"
+            <div class="text-[4rem] tracking-widest uppercase font-bold text-amber-400"
                  style:text-shadow="0 0 5px darkgoldenrod">
                 CORRECT
             </div>
-            <div class="text-xl">You solved the puzzle in {timeFormat($STATES[key].totalTime)}!</div>
+            <div class="text-xl text-center">
+                <div class="tracking-widest uppercase text-primary-400">Congratulations!</div>
+                You solved the puzzle in {timeFormat($STATES[key].totalTime)}!
+            </div>
             <ShareButton name={key.charAt(0).toUpperCase() + key.substring(1)} time={$STATES[key].totalTime}/>
         {/if}
 

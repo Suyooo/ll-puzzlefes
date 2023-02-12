@@ -6,9 +6,9 @@
     <div slot="explain">
         The solution requires recognizing which words each icon represents, and then removing all letters from the
         second word from the first word. Then, append "-wing".<br><br>
-        "soap" without "panda" &rAarr; "so" &rAarr; sowing<br>
-        "boat" without "cat" &rAarr; "bo" &rAarr; bowing<br>
-        "rose" without "frog" &rAarr; "se" &rAarr; sewing
+        "soap" without "panda" &rarr; "so" &rarr; "sowing"<br>
+        "boat" without "cat" &rarr; "bo" &rarr; "bowing"<br>
+        "rose" without "frog" &rarr; "se" &rarr; "sewing"
     </div>
     <div slot="loc">
         In the original puzzle, the required suffix was <i>-tori</i> (bird). So a fitting equivalent was picked here.
