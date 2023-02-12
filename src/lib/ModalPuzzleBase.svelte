@@ -82,12 +82,13 @@
             {:then image}
                 <img class="w-full" src={image} alt="Puzzle"/>
                 <div class="w-full max-w-md">
-                    <div class="text-xs tracking-widest uppercase font-bold text-primary-400 mb-1 select-none">
+                    <label for="answer"
+                           class="text-xs tracking-widest uppercase font-bold text-primary-400 mb-1 select-none">
                         Enter Your Answer!
-                    </div>
+                    </label>
                     <div class="w-full flex items-center gap-x-2">
                         <input class="flex-grow px-2 pb-1 pt-0.5 border-primary-400 border-2 rounded-full"
-                               bind:this={answer}
+                               id="answer" bind:this={answer}
                                class:bg-primary-400={answer?.disabled ?? false}
                                class:text-white={answer?.disabled ?? false}
                                class:text-center={answer?.disabled ?? false}
