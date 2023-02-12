@@ -17,6 +17,7 @@
             <li><a href="https://svelte.dev/">Svelte</a></li>
             <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
             <li><a href="https://iconsvg.xyz/">IconSVG</a></li>
+            <li><a href="https://www.dcode.fr/en">dCode</a></li>
         </ul>
     </div>
     <div>
