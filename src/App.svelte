@@ -4,6 +4,7 @@
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
     import PuzzleKotori from "$lib/puzzles/PuzzleKotori.svelte";
+    import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
@@ -35,7 +36,7 @@
             <img alt="Puzzle Solving Fes Logo" class="w-full" src="/title.svg"/>
         </div>
     </div>
-    <PageButton extraClasses="w-full max-w-md" label="Reveal Help" on:click={() => showHelp = !showHelp}>
+    <PageButton extraClasses="w-full max-w-md px-2" label="Reveal Help" on:click={() => showHelp = !showHelp}>
         What Is This?
     </PageButton>
     {#if showHelp}
@@ -56,7 +57,7 @@
         <MemberButton color="#7AEEFF" name="Eli" on:click={modal("Eli's Puzzle", PuzzleEli)}/>
         <MemberButton color="#CEBFBF" name="Kotori" on:click={modal("Kotori's Puzzle", PuzzleKotori)}/>
         <MemberButton color="#1769FF" name="Umi" on:click={modal("Umi's Puzzle", PuzzleUmi)} whiteText/>
-        <MemberButton color="#FFF832" disabled name="Rin"/>
+        <MemberButton color="#FFF832" name="Rin" on:click={modal("Rin's Puzzle", PuzzleRin)}/>
         <MemberButton color="#FF503E" disabled name="Maki"/>
         <MemberButton color="#C455F6" disabled name="Nozomi"/>
         <MemberButton color="#6AE673" disabled name="Hanayo"/>
@@ -96,7 +97,7 @@
         <MemberButton color="#B2FFDD" disabled name="Shiki"/>
         <MemberButton color="#FF51C4" disabled name="Natsumi"/>
     </div>
-    <PageButton extraClasses="mt-4 w-full max-w-md"
+    <PageButton extraClasses="mt-4 w-full max-w-md px-2"
                 label="Visit Original Site"
                 on:click={() => window.open("https://lovelive-sif2.bushimo.jp/nazotoki/list.html", "_blank")}>
         Visit The Official Site

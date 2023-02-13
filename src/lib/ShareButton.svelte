@@ -10,7 +10,9 @@
     let copied: boolean = false;
 
     function getShareText(): string {
-        return `I solved ${name}'s Puzzle!\nMy time was: ${timeFormat(time)}!\nhttps://puzzlefes.suyo.be/`;
+        return `I solved ${name}'s Puzzle!
+My time was: ${timeFormat(time)}! #SIF2PuzzleFes
+https://puzzlefes.suyo.be/`;
     }
 
     function shareResult() {
