@@ -9,8 +9,7 @@
     import PageButton from "$lib/styled/PageButton.svelte";
     import {fade} from "svelte-reduced-motion/transition";
 
-    let modalTitle: string = "";
-    let modalComponent = null;
+    let showHelp: boolean = false, modalTitle: string = "", modalComponent = null;
 
     function modal(title: string, component: any) {
         return openModal.bind(this, title, component);
@@ -28,7 +27,7 @@
 </script>
 
 <div class="relative flex flex-col w-full items-center" in:fade={{duration: 100}} tabindex="-1">
-    <div class="max-w-3xl px-2 my-8 flex items-center">
+    <div class="max-w-3xl px-2 mt-8 mb-4 flex items-center">
         <div class="basis-1/4 flex-shrink">
             <img alt="SIF2 Game Logo" class="w-full" src="/logo.png"/>
         </div>
@@ -36,7 +35,23 @@
             <img alt="Puzzle Solving Fes Logo" class="w-full" src="/title.svg"/>
         </div>
     </div>
-    <div class="w-full max-w-3xl flex-grow flex flex-wrap content-start">
+    <PageButton extraClasses="w-full max-w-md" label="Reveal Help" on:click={() => showHelp = !showHelp}>
+        What Is This?
+    </PageButton>
+    {#if showHelp}
+        <div class="w-full max-w-md border-2 bg-white mt-1 px-4 py-2 border-primary-400 rounded-2xl">
+            The <b>Puzzle Solving Festival</b> is a campaign by Bushiroad to celebrate the upcoming release of SIF2.<br>
+            <br>
+            Every day, a new puzzle is released on the official site, where the answer is some word relating to the
+            member. Analyze the puzzle to find hints, think about what words could be answers fitting for that member,
+            and solve all of the riddles!<br><br>
+            On this site, you can find localized versions of the original puzzles for those who don't know Japanese.
+            The localizations try to work the same way as the originals wherever possible, so you can still work out the
+            solutions with the intended approach!<br><br>
+            <a href="https://lovelive-sif2.bushimo.jp/preregistration/">Remember to preregister for SIF2!</a>
+        </div>
+    {/if}
+    <div class="w-full mt-8 max-w-3xl flex-grow flex flex-wrap content-start">
         <MemberButton color="#FFA336" name="Honoka" on:click={modal("Honoka's Puzzle", PuzzleHonoka)}/>
         <MemberButton color="#7AEEFF" name="Eli" on:click={modal("Eli's Puzzle", PuzzleEli)}/>
         <MemberButton color="#CEBFBF" name="Kotori" on:click={modal("Kotori's Puzzle", PuzzleKotori)}/>
@@ -46,7 +61,7 @@
         <MemberButton color="#C455F6" disabled name="Nozomi"/>
         <MemberButton color="#6AE673" disabled name="Hanayo"/>
         <MemberButton color="#FF4F91" disabled name="Nico"/>
-        <div class="w-full h-12">&nbsp;</div>
+        <div class="w-full h-8">&nbsp;</div>
         <MemberButton color="#FF9547" disabled name="Chika"/>
         <MemberButton color="#FF9EAC" disabled name="Riko"/>
         <MemberButton color="#27C1B7" disabled name="Kanan"/>
@@ -56,7 +71,7 @@
         <MemberButton color="#FFD010" disabled name="Hanamaru"/>
         <MemberButton color="#C252C6" disabled name="Mari"/>
         <MemberButton color="#FF6FBE" disabled name="Ruby"/>
-        <div class="w-full h-12">&nbsp;</div>
+        <div class="w-full h-8">&nbsp;</div>
         <MemberButton color="#FFBFE0" disabled name="Ayumu"/>
         <MemberButton color="#F5FF8A" disabled name="Kasumi"/>
         <MemberButton color="#BBEDFF" disabled name="Shizuku"/>
@@ -70,7 +85,7 @@
         <MemberButton color="#F1F0E6" disabled name="Mia"/>
         <MemberButton color="#F8C8C4" disabled name="Lanzhu"/>
         <MemberButton color="#000" disabled name="Yuu" whiteText/>
-        <div class="w-full h-12">&nbsp;</div>
+        <div class="w-full h-8">&nbsp;</div>
         <MemberButton color="#FF7F27" disabled name="Kanon"/>
         <MemberButton color="#A0FFF9" disabled name="Keke"/>
         <MemberButton color="#FF6E90" disabled name="Chisato"/>
@@ -81,10 +96,10 @@
         <MemberButton color="#B2FFDD" disabled name="Shiki"/>
         <MemberButton color="#FF51C4" disabled name="Natsumi"/>
     </div>
-    <PageButton extraClasses="mt-4"
+    <PageButton extraClasses="mt-4 w-full max-w-md"
                 label="Visit Original Site"
                 on:click={() => window.open("https://lovelive-sif2.bushimo.jp/nazotoki/list.html", "_blank")}>
-        Visit Original Site
+        Visit The Official Site
     </PageButton>
     <div class="justify-self-end mt-2 mb-4 text-xs text-gray-500">
         This site was made by Suyooo.
