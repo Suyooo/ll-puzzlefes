@@ -23,7 +23,7 @@
             {#if disabled}
                 <span class="text-white text-xs">Coming Soon</span>
             {:else if $STATES[key] === undefined}
-                <span class="text-primary-400 motion-safe:animate-bounce mt-1 -mb-1">NEW!</span>
+                <span class="text-primary-400 motion-safe:animate-bounce mt-1 -mb-1 sm:my-0">NEW!</span>
             {:else if $STATES[key].solved === false}
                 <span class="text-xs">Not Solved</span>
             {:else}
