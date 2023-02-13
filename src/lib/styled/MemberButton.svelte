@@ -13,7 +13,7 @@
 </script>
 
 <button aria-disabled={disabled} aria-label={name} class="mb-4 basis-1/3 px-2 h-12 w-full font-bold" on:click
-        title={name}>
+        class:cursor-default={disabled} title={name}>
     <div class="flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none transition-shadow outline outline-[.125rem] outline-offset-[-.125rem]"
          class:bg-gray-300={!disabled} class:bg-gray-500={disabled} class:hover:bg-gray-200={!disabled}
          class:outline-gray-300={!disabled} class:outline-gray-500={disabled}>
