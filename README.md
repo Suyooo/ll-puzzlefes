@@ -1,9 +1,8 @@
-# LL! Guess That Album
+# SIF2 Puzzle Solving Festival
 
-This is the source code for the Love Live! album art guessing game, playable here: https://llalbum.suyo.be/
+The [Puzzle Solving Festival](https://lovelive-sif2.bushimo.jp/nazotoki/list.html) is a campaign by Bushiroad to
+celebrate the upcoming release of SIF2.
 
-This is my first bigger Svelte project - so be prepared for a mess (if you have more experience than me and see some odd
-choices or constructs, please feel free to suggest improvements :))
-
-If you want to see how the game modes are implemented or want to make one yourself, head to the `src/modules/games`
-folder. Another readme will await you there.
+Every day, a new puzzle is released on the official site, where the answer is some word relating to the member. This
+site was made as an addition to the image localization so your answer can be checked without spoiling yourself with the
+correct one.
