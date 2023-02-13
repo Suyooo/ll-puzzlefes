@@ -4,6 +4,7 @@
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
     import PuzzleKotori from "$lib/puzzles/PuzzleKotori.svelte";
+    import PuzzleMaki from "$lib/puzzles/PuzzleMaki.svelte";
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
@@ -58,7 +59,7 @@
         <MemberButton color="#CEBFBF" name="Kotori" on:click={modal("Kotori's Puzzle", PuzzleKotori)}/>
         <MemberButton color="#1769FF" name="Umi" on:click={modal("Umi's Puzzle", PuzzleUmi)} whiteText/>
         <MemberButton color="#FFF832" name="Rin" on:click={modal("Rin's Puzzle", PuzzleRin)}/>
-        <MemberButton color="#FF503E" disabled name="Maki"/>
+        <MemberButton color="#FF503E" name="Maki" on:click={modal("Maki's Puzzle", PuzzleMaki)}/>
         <MemberButton color="#C455F6" disabled name="Nozomi"/>
         <MemberButton color="#6AE673" disabled name="Hanayo"/>
         <MemberButton color="#FF4F91" disabled name="Nico"/>
