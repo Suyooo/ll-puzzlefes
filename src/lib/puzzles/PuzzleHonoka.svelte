@@ -19,5 +19,9 @@
         The berry is the minuend here, and instead of subtracting the words themselves, the subtrahend must be
         interpreted as positions. That way, the puzzle is still about correctly interpreting the operands as something
         other than numbers.
+        <br><br>
+        <a href="https://pngset.com/download-free-png-yaahg">
+            Blackberry image by Darien Watkins, used under CC BY-NC 4.0.
+        </a>
     </div>
 </ModalPuzzleBase>
