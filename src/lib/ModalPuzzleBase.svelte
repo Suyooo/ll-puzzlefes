@@ -11,9 +11,10 @@
     export let url: string;
     export let solution: string;
 
-    let answer: HTMLInputElement, imagePromise: Promise<string>, justSolved: boolean = false,
+    let answer: HTMLInputElement, imagePromise: Promise<string>, justSolved: boolean = false, name: string,
         showHint: boolean = false, showExplain: boolean = false, showLoc: boolean = false,
         blockTimerStart: boolean = false;
+    $: name = key.charAt(0).toUpperCase() + key.substring(1);
 
     if ($STATES[key] === undefined) {
         createState(key);
@@ -137,10 +138,10 @@
             </div>
             <div class="text-xl text-center">
                 <div class="tracking-widest uppercase text-primary-400">Congratulations!</div>
-                You solved the puzzle in {timeFormat($STATES[key].totalTime)}!
+                You solved {name}'s Puzzle in {timeFormat($STATES[key].totalTime)}!
             </div>
             <div class="pb-6 pt-4">
-                <ShareButton name={key.charAt(0).toUpperCase() + key.substring(1)} time={$STATES[key].totalTime}/>
+                <ShareButton {name} time={$STATES[key].totalTime}/>
             </div>
         {/if}
 
