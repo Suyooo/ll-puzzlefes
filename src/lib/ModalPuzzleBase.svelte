@@ -12,7 +12,8 @@
     export let solution: string;
 
     let answer: HTMLInputElement, imagePromise: Promise<string>, justSolved: boolean = false,
-        showExplain: boolean = false, showLoc: boolean = false, blockTimerStart: boolean = false;
+        showHint: boolean = false, showExplain: boolean = false, showLoc: boolean = false,
+        blockTimerStart: boolean = false;
 
     if ($STATES[key] === undefined) {
         createState(key);
@@ -95,19 +96,36 @@
                                on:keyup={(e) => {if (e.key === "Enter") submit();}}>
                         <PageButton label="Submit" on:click={submit}>Submit</PageButton>
                     </div>
-                    {#if !$STATES[key].solved && $STATES[key].wrongGuesses.length > 0}
-                        <div class="pt-6 w-full max-w-md">
-                            <div class="text-xs tracking-widest uppercase font-bold text-gray-500 select-none">
-                                Previous Answers
-                            </div>
-                            {#each [...$STATES[key].wrongGuesses].reverse() as guess (guess)}
-                                <div class="w-full mt-1 rounded-full px-3 pb-1 pt-0.5 border border-gray-500 text-gray-500"
-                                     in:fly|local="{{ x: 100, duration: 300 }}">
-                                    {guess}
+                    <div class="pt-6 w-full max-w-md">
+                        {#if !$STATES[key].solved && $STATES[key].wrongGuesses.length > 0}
+                            <div class="pb-6">
+                                <div class="text-xs tracking-widest uppercase font-bold text-gray-500 select-none">
+                                    Previous Answers
                                 </div>
-                            {/each}
-                        </div>
-                    {/if}
+                                {#each [...$STATES[key].wrongGuesses].reverse() as guess (guess)}
+                                    <div class="w-full mt-1 rounded-full px-3 pb-1 pt-0.5 border border-gray-500 text-gray-500"
+                                         in:fly|local="{{ x: 100, duration: 300 }}">
+                                        {guess}
+                                    </div>
+                                {/each}
+                            </div>
+                        {/if}
+
+                        {#if $$slots.hint}
+                            <PageButton label="Reveal Hint" on:click={() => showHint = !showHint} extraClasses="w-full">
+                                Hint
+                            </PageButton>
+                            {#if showHint}
+                                <div class="w-full border-2 bg-white mt-1 px-4 py-2 border-primary-400 rounded-2xl">
+                                    <slot name="hint"/>
+                                </div>
+                            {/if}
+                        {:else}
+                            <div class="bg-gray-500 h-8 flex items-center justify-center rounded-full px-4 py-2 uppercase tracking-widest select-none font-bold text-white">
+                                Hint unlocking tomorrow!
+                            </div>
+                        {/if}
+                    </div>
                 </div>
             {:catch e}
                 There was a problem loading the puzzle. Please try again! {@html e.stack.replace(/\n/g, "<br>")}
@@ -121,11 +139,13 @@
                 <div class="tracking-widest uppercase text-primary-400">Congratulations!</div>
                 You solved the puzzle in {timeFormat($STATES[key].totalTime)}!
             </div>
-            <ShareButton name={key.charAt(0).toUpperCase() + key.substring(1)} time={$STATES[key].totalTime}/>
+            <div class="pb-6 pt-4">
+                <ShareButton name={key.charAt(0).toUpperCase() + key.substring(1)} time={$STATES[key].totalTime}/>
+            </div>
         {/if}
 
         {#if $STATES[key].solved}
-            <div class="pt-6 w-full max-w-md">
+            <div class="w-full max-w-md">
                 <PageButton label="Reveal Explanation" on:click={() => showExplain = !showExplain}
                             extraClasses="w-full">
                     Solution
