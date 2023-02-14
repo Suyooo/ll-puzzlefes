@@ -3,6 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="kotori" solution="sewing" url="/puzzles/03_kotori.png">
+    <div slot="hint">
+        The words on the right have something in common.<br>
+        Try finding the parts of the words that are different in the icon on the left of each line.
+    </div>
     <div slot="explain">
         The solution requires recognizing which words each icon represents, and then removing all letters from the
         second word from the first word. Then, append "-wing".<br><br>

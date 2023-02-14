@@ -3,6 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="rin" solution="ramen" url="/puzzles/05_rin.png">
+    <div slot="hint">
+        The word you are looking for in the first row is not a verb, but a noun.<br>
+        Also, remember the hint at the bottom - you are looking for a type of food.
+    </div>
     <div slot="explain">
         The image represents the word "dreaming". Assigning the letters to the symbols and replacing the symbols in the
         second line with those letters reveals the answer "ramen".
