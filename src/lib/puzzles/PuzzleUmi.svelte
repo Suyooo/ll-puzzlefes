@@ -3,6 +3,9 @@
 </script>
 
 <ModalPuzzleBase key="umi" solution="training" url="/puzzles/04_umi.png">
+    <div slot="hint">
+        It seems like each row has the same amount of arrows in the targets as there are letters in the word.
+    </div>
     <div slot="explain">
         The missing letter in the boxes is N, forming "ring" and "tanning".<br><br>
         The targets represent letters, and the arrows show how often they appear in the word. From the line for "rain",

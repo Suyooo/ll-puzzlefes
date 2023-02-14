@@ -3,6 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="honoka" solution="bakery" url="/puzzles/01_honoka.png">
+    <div slot="hint">
+        Obviously, you cannot subtract a number from a blackberry.<br>
+        A minus means taking something away, but if it's not a number, what else can be taken away?
+    </div>
     <div slot="explain">
         You cannot subtract a number from a blackberry. So, instead, the digits represent the positions of the
         characters that must be "subtracted" from the word.<br><br>
@@ -15,5 +19,9 @@
         The berry is the minuend here, and instead of subtracting the words themselves, the subtrahend must be
         interpreted as positions. That way, the puzzle is still about correctly interpreting the operands as something
         other than numbers.
+        <br><br>
+        <a href="https://pngset.com/download-free-png-yaahg">
+            Blackberry image by Darien Watkins, used under CC BY-NC 4.0.
+        </a>
     </div>
 </ModalPuzzleBase>

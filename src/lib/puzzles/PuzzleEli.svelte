@@ -3,6 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="eli" solution="angelic" url="/puzzles/02_eli.png">
+    <div slot="hint">
+        Have you ever used a calculator and tried writing words with the numbers on it?<br>
+        What did you have to do to make the numbers properly look like letters?
+    </div>
     <div slot="explain">
         The characters below "ELI" are numbers. Place each letter at that position in the answer - E in position 4,
         L in position 5 and I in position 6.<br><br>
