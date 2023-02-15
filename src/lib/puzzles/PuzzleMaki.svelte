@@ -3,6 +3,12 @@
 </script>
 
 <ModalPuzzleBase key="maki" solution="bibi" url="/puzzles/06_maki.png">
+    <div slot="hint">
+        Try splitting the letter hints into words with two letters each. Do these sound familiar to you?<br>
+        The leftmost white key is "do", and each white key is another step in that scale.<br>
+        After you found the correct keys, you've got a bunch of numbers. Try summing them up for each of the letter
+        hints - what could these sums mean?
+    </div>
     <div slot="explain">
         Using the solfège scale ("do-re-mi-fa-so-la-ti"), look up the piano keys for each note in the four words. Each
         white key is one of the main tones, and a # indicates you must raise the note by half a step (the next black key
