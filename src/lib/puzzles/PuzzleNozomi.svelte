@@ -24,6 +24,8 @@
         thing but in increasing difficulty: just the straight card to letter, then rotating the letter, then combining
         letters. So then, if the "AA" doesn't work out to an "M", the answer can be guessed from just "_use" - and in
         that case, you still solved a puzzle involving the layout of cards having to be applied to letters thanks to the
-        "U" card.
+        "U" card.<br><br>
+        The shapes of the candles and the symbols on the cards mean nothing, they're just there to make things a little
+        easier for people with color vision deficiencies :)
     </div>
 </ModalPuzzleBase>
