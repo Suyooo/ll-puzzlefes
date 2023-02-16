@@ -3,6 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="nozomi" solution="muse" url="/puzzles/07_nozomi.png">
+    <div slot="hint">
+        The answer is four letters long.<br>
+        Each card stands for one letter. Imagine drawing the letter onto the cards. How would they look when laid down
+        as shown in the reading?
+    </div>
     <div slot="explain">
         Each candle or card represents one letter from the words "candles" or "cards" respectively. You can use that
         mapping to find the meaning of the reading. The circle card and the candle can simply be replaced with "S" and
