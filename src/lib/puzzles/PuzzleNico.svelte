@@ -4,8 +4,9 @@
 
 <ModalPuzzleBase key="nico" solution="sister" url="/puzzles/09_nico.png">
     <!--<div slot="hint">
-        The word you are looking for in the first row is not a verb, but a noun.<br>
-        Also, remember the hint at the bottom - you are looking for a type of food.
+        The amount of letters in the second row is unknown - so use the example in the first row, where you know how
+        many letters you need to fill in, to work out the pattern (the "me" refers to Nico). Then, you should be able to
+        easily apply that pattern in the second row.
     </div>-->
     <div slot="explain">
         Count the items, then take letters from the start and end of the description as shown.<br><br>
