@@ -15,6 +15,9 @@
         half of "B" is "E", resulting in the answer "rice".
     </div>
     <div slot="loc">
+        Original puzzle approach: The questions were "a word for bad luck" and "there's 23 of these in Tokyo". Applying
+        the kanji of the answers to those questions to the symbols, observing the rotation of the heart symbol for the
+        radical surrounding three sides, reveals the katakana コ and メ, which form the answer together.<br><br>
         I tried to make sure as many details as possible from the original puzzle were also in this one:<br>
         <i>Character transformation</i> - English can't form letters out of other letters very well, so in this puzzle,
         we cut letters in half.<br>

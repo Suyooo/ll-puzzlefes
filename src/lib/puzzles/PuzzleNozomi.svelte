@@ -19,7 +19,10 @@
         will reveal the final letter, "M". Together, the letters form the answer "muse".
     </div>
     <div slot="loc">
-        Just like in the original, characters must be formed by combining others. Of course, it's far harder with the
+        Original puzzle approach: Each crystal ball and card represents one katakana character. The cards for ロ and ト
+        are stacked on top of each other in the reading. Those two katakana can also be used as radicals, so forming a
+        kanji by placing them vertically results in 占.<br><br>
+        That's why here, you form one of the answer characters by combining others. Of course, it's far harder with the
         latin alphabet than with radicals. So yeah, just between us two: I think the "AA" as "M" thing kinda stinks. I'm
         not really happy with it, it can be too much of a stretch depending on how exactly people write the letters out
         or how they overlap them.<br><br>

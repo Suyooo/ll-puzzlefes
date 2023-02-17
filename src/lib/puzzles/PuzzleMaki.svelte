@@ -17,10 +17,13 @@
         and 9th letter in the alphabet maps these numbers to the answer "BiBi".
     </div>
     <div slot="loc">
-        In the original, the lookup step was to take the radical names recieved from mapping the notes using the solfège
-        scale, and finding the katakana that looks like that radical. Technically, I could have done something similar
-        by making the note lookup result in words, and having you pick the letter that looks like that word for the
-        answer ("tent" &rarr; "A" looks like a tent?).<br><br>
+        Original puzzle approach: Each piano key is labeled with a katakana. Using the solfège scale, the hints can be
+        mapped to words, which are the names of radicals. These radicals look like katakana, so mapping the names of the
+        radicals to the katakana lookalikes, you get the answer.<br><br>
+        Technically, I could have done something similar by making the piano keys letter and having the note lookup
+        result in words. Then, you'd have to you pick a letter that looks like that word for the answer ("tent" &rarr;
+        "A"
+        looks like a tent?).<br><br>
         However, that would have meant that for one, I would have to heavily hint at it, since it's not an intuitive
         solution in English (if you are tasked with mapping the word "tent" to one letter, you would most likely just
         take the first or last letter), and also, it's open to subjectivity ("M" could maybe look like a <i>circus</i>

@@ -15,7 +15,11 @@
         3. After placing all six letters, the resulting answer is "angelic".
     </div>
     <div slot="loc">
-        The original puzzle also required turning it upside-down, so I wanted to make sure the same solution was needed
+        Original puzzle approach: The boxes below "ELI" must be filled with the reading of the English letters in the
+        Japanese syllabary ("i-", "eru", "ai"). Turning the puzzle upside down reveals the numbers "173", and the boxes
+        below them must be filled with the Japanese readings ("ichi", "shichi", "san"). Looking at which characters are
+        now filling in the symbols, the answer can be formed.<br><br>
+        I wanted to make sure the same "turn the puzzle upside down" solution approach was needed for the localization
         here. However, it was not possible to use the reading of the letters and numbers (there wasn't any good answer
         words), so instead, I made the numbers the positions in the answer.<br><br>
         I was pretty lucky that "angelic" was a possible word to form this way - at first I just placed the ACG letters

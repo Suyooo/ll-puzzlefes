@@ -15,8 +15,11 @@
         forming the answer "training".
     </div>
     <div slot="loc">
-        The targets were hinted at representing the word in the original puzzle by the smaller target, which stands for
-        the small "ゅ" in "きゅうどう". To recreate that hint, the localized puzzle has the double-hit target, only
+        The original puzzle worked the exact same - the targets represent the answer, while the hints only use those
+        characters that were hit by arrows. This is further obscured one of the radicals of the kanji being hidden.<br>
+        <br>
+        In the original, the target-to-character relation is hinted towards by the smaller target, which stands for the
+        small "ゅ" in "きゅうどう". To recreate that hint, the localized puzzle has the double-hit target instead, only
         appearing for the word that has the same character twice in a row.<br>
         What wasn't quite as easy to translate into another language was the missing block, since you don't something in
         English like using a radical as both the whole and half of a kanji. Instead, I just hid the most common letter -

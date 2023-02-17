@@ -15,6 +15,9 @@
         letters before the "S" form the answer, "sister".
     </div>
     <div slot="loc">
+        Original puzzle approach: Japanese uses different counter words depending on what you count. Two apples is
+        counted with "ni-ko", "ko" being the correct counter for apples. Alpacas are animals, so you use the counter
+        "tou" for them - "kyuu-tou", which results in the answer "cute".<br><br>
         Similarly to the original puzzle, this one is set up using an example to find the pattern, and then a second
         line to apply that pattern to. English doesn't have counter words, but using the actual name of the item works
         just fine.<br><br>The main difference is that because English numbers make real bad words, I had to add a step
