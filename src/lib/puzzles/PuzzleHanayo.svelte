@@ -3,11 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="hanayo" solution="rice" url="/puzzles/08_hanayo.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         The spade symbol (♤) stands for a "T".<br>
         Some of the symbols needed for the answer might look like they do not show up in either word. Think about what
         symbols you have available and how you could find those missing symbols among them.
-    </div>-->
+    </div>
     <div slot="explain">
         The first word is "barista", the second word is "airport".<br>
         You can map the letters of the words to the symbols on the answer. The last two symbols are a half circle and a
