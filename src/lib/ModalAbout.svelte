@@ -18,6 +18,11 @@
             <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
             <li><a href="https://iconsvg.xyz/">IconSVG</a></li>
             <li><a href="https://www.dcode.fr/en">dCode</a></li>
+            <li>
+                <a href="https://github.com/freebee-game/enable">
+                    ENABLE Word List (as maintained by the FreeBee project)
+                </a>
+            </li>
         </ul>
     </div>
     <div>

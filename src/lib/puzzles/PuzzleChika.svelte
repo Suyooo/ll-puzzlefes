@@ -2,28 +2,38 @@
     import ModalPuzzleBase from "$lib/ModalPuzzleBase.svelte";
 </script>
 
-<ModalPuzzleBase key="chika" solution="shine" url="/puzzles/11_chika.png">
+<ModalPuzzleBase key="chika" solution="clover" url="/puzzles/11_chika.png">
     <!--<div slot="hint">
-        The key to this puzzle is figuring out what "fill with" means. Try working backwards - you have two examples to
-        work with.<br>
-        What do the example words have in place of the circles? Where could these have come from?
+        Try writing out the puzzle text without the images. Is there anything catching your eye? Where does the
+        replacement used in the example answer on the right come from?<br>
+        You can also read out the puzzle text loudly and see whether you notice something. Try pronouncing the second
+        word as wrong as possible.
     </div>-->
     <div slot="explain">
-        In this puzzle, "fill with" means to replace the circle symbols with the letters of the word "island". There are
-        three words possible, with "shade" and "shale" given as examples. The final possibility is the answer, "shine".
+        Replace "mikan" with "coral". Splitting up the word "coral", you can get "c or al".<br>
+        Replacing the mikan with "al" gives you the example answer "allover", so using the "c", you can get the real
+        answer, "clover".
     </div>
     <div slot="loc">
-        It took me an entire day to find a emoji/answer combination where this puzzle was possible. I was close to just
-        dumping the original puzzle and making something different lol<br><br>
-        One thing I ruled out very early was using the mikan as in the original - simply because some people would call
-        it a "mikan", but others would go for something like "orange" or "tangerine", since it's a localized puzzle. In
-        these cases, it would be extremely confusing if you run into a problem and then can't tell whether it's your
-        approach or your citrus name. It would be impossible to make sure everyone is on the same page without heavy
-        descriptions or hinting, so I just skipped the good fruit for today.<br><br>
-        Also, this puzzle is once again something where in the original, the mere existence of kanji raises the
-        difficulty of the puzzle by obscuring the reading of the words. So, in turn, I had two spots to fill in instead
-        of one to make it a little harder here. The fact that "island" is twice as many characters as "mi-ka-n" also
-        makes things harder, but that one I tried to soften by giving two examples instead of just one, so you can see
-        more characters being used.
+        I HONESTLY CANNOT BELIEVE HOW PERFECTLY THIS ONE WORKED OUT AAAA<br><br>
+        To quickly recap the original puzzle: "mikan" can be read as "mi-ka-n", the "ka" standing for an "or". So the
+        puzzle, when read out loud, asks you to "replace the circle symbol with 'mi' or 'n'". At first, I was giving up
+        on trying to copy this approach straight over, as I just couldn't find anything that worked with the ideas I had
+        for the answer word. Finding a word combination that worked for the altered version of the puzzle still took an
+        entire day! If you want to give it a try, <a href="/puzzles/11_chika_v1.png">here's what this puzzle could have
+        been</a>.<br><br>
+        The next day though, I decided to give it another shot, and just searching for "or" in the
+        <a href="https://unicode.org/emoji/charts/full-emoji-list.html">Unicode Consortium's Emoji list</a> turned up
+        the coral. Hey, that kind of fits, and works out, and now I just need to find a fitting answer! It was time to
+        get the big guns out.<br>
+        I downloaded the ENABLE word list, a public domain collection of 150000+ words, and wrote a script to look for
+        every possible pair of words where "c" and "al" are the only difference. There's surprisingly many, actually -
+        89 pairs! And this one was not even the only one fitting for Chika: another candidate would have been "alanine"
+        and "canine" for the Shiitake shoutout. And I almost went for that one, because looking at the
+        "clover"/"allover" pair, I thought it looked weird that the top hint would end up being "○LOVER". I originally
+        wanted it to be some weird hint that doesn't make sense as a word standalone. But then I thought that maybe, it
+        could be another Chika-related bit. What could I put instead of the circle to make that work? Wait, I don't have
+        any mikan in the puzzle right now...<br><br>
+        And it was perfect.
     </div>
 </ModalPuzzleBase>
