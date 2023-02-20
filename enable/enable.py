@@ -15,3 +15,33 @@ def common(target):
                 if w[i] == target[i+off]: s += 1
             r[s].append(w + ("" if len(w)==len(target) else " (+"+str(off)+")"))
     return r
+
+def combinations(target):
+    for w1 in l:
+        d1 = len(target) - len(w1)
+        for o1 in range(0, d1, 1 if d1 > 0 else -1):
+            hit = [False for c in target]
+            minHits = 4
+            for i in range(len(target)):
+                ii = i - o1
+                hit[i] = ii >= 0 and ii < len(w1) and w1[ii] == target[i]
+                if hit[i]: minHits -= 1
+            if minHits > 0: continue
+
+            for w2 in l:
+                d2 = len(target) - len(w2)
+                for o2 in range(0, d2, 1 if d2 > 0 else -1):
+                    allHit = True
+                    maxHits = 7
+                    for i in range(len(target)):
+                        ii = i - o2
+                        isHit = ii >= 0 and ii < len(w2) and w2[ii] == target[i]
+                        if isHit:
+                            maxHits -= 1
+                            continue
+                        elif hit[i]:
+                            continue
+                        else:
+                            allHit = False
+                            break
+                    if maxHits > 0 and allHit: print(w1,o1,w2,o2)
