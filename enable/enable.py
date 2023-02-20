@@ -10,7 +10,6 @@ def common(target):
     for w in l:
         if len(w) > len(target): continue
         for off in range(len(target) - len(w) + 1):
-            print(w,off)
             s = 0
             for i in range(len(w)):
                 if w[i] == target[i+off]: s += 1
