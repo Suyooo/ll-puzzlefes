@@ -3,10 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="riko" solution="piano" url="/puzzles/12_riko.png">
-    <div slot="hint">
-        This puzzle is not related to music notes. Look for what the notes on each line of the staff have in common.<br>
+    <!--<div slot="hint">
+        This puzzle is not related to music notes. Instead, look for what the notes on each line of the staff have in
+        common.<br>
         There are seven notes on the staff. Try finding something you can map those seven notes to.
-    </div>
+    </div>-->
     <div slot="explain">
         The seven notes represent seven syllables of "The answer is ? ? ?": Each line represents one vowel (in
         alphabetical order from the top), and the letters in the flag are the consonant letters in this syllable.<br>
