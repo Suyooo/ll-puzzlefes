@@ -3,12 +3,12 @@
 </script>
 
 <ModalPuzzleBase key="chika" solution="clover" url="/puzzles/11_chika.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         Try writing out the puzzle text without the images. Is there anything catching your eye? Where does the
         replacement used in the example answer on the right come from?<br>
         You can also read out the puzzle text loudly and see whether you notice something. Try pronouncing the second
         word as wrong as possible.
-    </div>-->
+    </div>
     <div slot="explain">
         Replace "mikan" with "coral". Splitting up the word "coral", you can get "c or al".<br>
         Replacing the mikan with "al" gives you the example answer "allover", so using the "c", you can get the real
