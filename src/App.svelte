@@ -9,6 +9,7 @@
     import PuzzleMaki from "$lib/puzzles/PuzzleMaki.svelte";
     import PuzzleNico from "$lib/puzzles/PuzzleNico.svelte";
     import PuzzleNozomi from "$lib/puzzles/PuzzleNozomi.svelte";
+    import PuzzleRiko from "$lib/puzzles/PuzzleRiko.svelte";
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
@@ -69,7 +70,7 @@
         <MemberButton color="#FF4F91" name="Nico" on:click={modal("Nico's Puzzle", PuzzleNico)}/>
         <div class="w-full h-8">&nbsp;</div>
         <MemberButton color="#FF9547" name="Chika" on:click={modal("Chika's Puzzle", PuzzleChika)}/>
-        <MemberButton color="#FF9EAC" disabled name="Riko"/>
+        <MemberButton color="#FF9EAC" name="Riko" on:click={modal("Riko's Puzzle", PuzzleRiko)}/>
         <MemberButton color="#27C1B7" disabled name="Kanan"/>
         <MemberButton color="#DB0839" disabled name="Dia" whiteText/>
         <MemberButton color="#66C0FF" disabled name="You"/>
