@@ -3,6 +3,7 @@
     import ModalAbout from "$lib/ModalAbout.svelte";
     import PuzzleChika from "$lib/puzzles/PuzzleChika.svelte";
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
+    import PuzzleHanamaru from "$lib/puzzles/PuzzleHanamaru.svelte";
     import PuzzleHanayo from "$lib/puzzles/PuzzleHanayo.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
     import PuzzleKotori from "$lib/puzzles/PuzzleKotori.svelte";
@@ -75,7 +76,7 @@
         <MemberButton color="#DB0839" disabled name="Dia" whiteText/>
         <MemberButton color="#66C0FF" disabled name="You"/>
         <MemberButton color="#C1CAD4" disabled name="Yohane"/>
-        <MemberButton color="#FFD010" disabled name="Hanamaru"/>
+        <MemberButton color="#FFD010" name="Hanamaru" on:click={modal("Hanamaru's Puzzle", PuzzleHanamaru)}/>
         <MemberButton color="#C252C6" disabled name="Mari"/>
         <MemberButton color="#FF6FBE" disabled name="Ruby"/>
         <div class="w-full h-8">&nbsp;</div>
