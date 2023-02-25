@@ -46,23 +46,22 @@ def combinations(target):
                             break
                     if maxHits > 0 and allHit: print(w1,o1,w2,o2)
 
-def sortByNonMatches(matchingLetters, mustInclude="", minMatching=0, maxNonMatching=9999):
+def sortByNonMatches(words):
     r = {}
     for w in l:
-        hasIncludes = [False for c in mustInclude]
-        countMatches = 0
+        matches = [False for c in words]
         countNonMatches = 0
         for c in w:
-            if c in mustInclude:
-                hasIncludes[mustInclude.index(c)] = True
-            if c in matchingLetters:
-                countMatches += 1
-            else:
-                countNonMatches += 1
+            found = False
+            for i in range(len(words)):
+                if c not in words[i]: continue
+                found = True
+                if matches[i]: continue
+                matches[i] = True
+                break
+            if not found: countNonMatches += 1
 
-        if False in hasIncludes: continue
-        if countMatches < minMatching: continue
-        if countNonMatches > maxNonMatching: continue
+        if False in matches: continue
         if countNonMatches not in r: r[countNonMatches] = []
         r[countNonMatches].append(w)
     return {k:r[k] for k in sorted(r)}
