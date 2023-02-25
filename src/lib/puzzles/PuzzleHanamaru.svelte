@@ -15,11 +15,15 @@
         answer, "zura".
     </div>
     <div slot="loc">
-        Why use shapes instead of colours? For two reasons: One, it helps people with colour vision deficiencies. If I
-        used colours, the only way around it would be writing out the colour names, and that would probably give things
-        away.<br><br>
+        The original puzzle worked similarly, by assigning the characters of a word to a stack of books, and then
+        taking all the characters from the highlighted books to form the answer word. The key difference is where those
+        hint words come from: in the original, there is a stack of green books ("mi-do-ri"), a stack of black books
+        ("ku-ro") and a stack of white books ("shi-ro").<br><br>
+        Why use shapes instead of colours in this one? For two reasons: One, it helps people with colour vision
+        deficiencies. If I used colours, the only way around it would be writing out the colour names, and that would
+        probably give the key to the puzzle away to everyone playing.<br><br>
         Two, it just lined up nicely. I wanted to do the same thing as in the original puzzle where the stacks are
-        placed at the same height as if on a shelf, so I had to make sure all the used letters are in the same position
+        placed at the same height, as if on a shelf, so I had to make sure all the used letters are in the same position
         in each word, but from the end. So I just wrote a little script, fed it with some shape names to test it out,
         and "zura" as a possible word was just too perfect to pass up on.
     </div>
