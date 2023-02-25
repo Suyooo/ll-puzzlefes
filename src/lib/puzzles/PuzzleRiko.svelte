@@ -18,11 +18,12 @@
     </div>
     <div slot="loc">
         This one is basically the same as the original. Each line stands for a vowel, and must be combined with the
-        consonant in the flag to form the sentence "the answer is piano". There are just a few small differences - one
-        of them is the fact that in English, we need multiple consonants per note, so I had to make the flags scale
-        accordingly.<br>To avoid the "swer" being too obvious, the consonants are alphabetically ordered, which also
-        hints at the vowels along the lines being alphabetically ordered, too. (Which is another small difference: in
-        Japan, vowels go A-I-U-E-O, but here, they go A-E-I-O-U.)<br><br>
+        consonant in the flag to form the sentence "the answer is piano" ("ko-ta-e ha pi-a-no" in the original).
+        There are just a few small differences - one of them is the fact that in English, we need multiple consonants
+        per note, so I had to make the flags scale accordingly.<br>
+        To avoid the "swer" being too obvious, the consonants are alphabetically ordered, which also hints at the vowels
+        along the lines being alphabetically ordered. (Which is another small difference: in Japan, vowels go A-I-U-E-O,
+        but here, they go A-E-I-O-U.)<br><br>
         The last difference is that the original puzzle can easily hint at the relation between the syllables of the
         hint and the notes thanks to the Japanese syllabary. The word for answer, "kotae", is even written in hiragana
         instead of using a kanji as usual, and the kana are spaced so they align with each note. That would look really
