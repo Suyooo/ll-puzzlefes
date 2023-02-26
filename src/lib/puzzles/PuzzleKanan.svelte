@@ -3,11 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="kanan" solution="dive" url="/puzzles/13_kanan.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         The words for the first two lines describe the person in the picture who is doing the activity, not the activity
         itself.<br>
         The first word starts with an "H".
-    </div>-->
+    </div>
     <div slot="explain">
         The first word is "hiker", the second is "driver". By copying the highlighted letters, you get the answer,
         "dive".

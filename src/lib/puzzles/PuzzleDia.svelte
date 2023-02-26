@@ -3,11 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="dia" solution="fan" url="/puzzles/14_dia.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         What is that shape behind the numbers on the left side?<br>
         Try finding out how you can represent the character on the right side of each arrow in the shape on the left
         side.
-    </div>-->
+    </div>
     <div slot="explain">
         The numbers on the left side are mapped to a seven-segment display in reading order - top to bottom, left to
         right. Applying this mapping to the last line results in letters spelling out the answer "fan".

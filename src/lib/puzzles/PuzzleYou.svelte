@@ -3,11 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="you" solution="ferry" url="/puzzles/15_you.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         All three of the hint images are about swimming, but in different ways. What different ways of swimming are
         there?<br>
         The last image is of someone swimming while looking upwards instead of into the water.
-    </div>-->
+    </div>
     <div slot="explain">
         The images are showing three different swimming styles - "crawl", "butterfly" and "backstroke".<br>
         Matching the symbols below the hints to the ones below results in the answer "ferry".
