@@ -13,6 +13,7 @@
     import PuzzleNozomi from "$lib/puzzles/PuzzleNozomi.svelte";
     import PuzzleRiko from "$lib/puzzles/PuzzleRiko.svelte";
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
+    import PuzzleRuby from "$lib/puzzles/PuzzleRuby.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
@@ -80,7 +81,7 @@
         <MemberButton color="#C1CAD4" disabled name="Yohane"/>
         <MemberButton color="#FFD010" disabled name="Hanamaru"/>
         <MemberButton color="#C252C6" disabled name="Mari"/>
-        <MemberButton color="#FF6FBE" disabled name="Ruby"/>
+        <MemberButton color="#FF6FBE" name="Ruby" on:click={modal("Ruby's Puzzle", PuzzleRuby)}/>
         <div class="w-full h-8">&nbsp;</div>
         <MemberButton color="#FFBFE0" disabled name="Ayumu"/>
         <MemberButton color="#F5FF8A" disabled name="Kasumi"/>
