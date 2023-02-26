@@ -23,10 +23,8 @@
         middle had to be one shared with the other word. And anything that even remotely worked (the candidates I found
         were "crystal"/"orb" and "eclipse"/"dim"), I couldn't find a fitting answer word for.<br>
         So that had me stuck, until I just went "hot take: cross shape is bad????" and discarded the word layout
-        constraints (though I would still add some decoration to the grid shape to just make it look closer to the
-        original - after all, it was also just for looks there). Shortly after, I also came up with the idea used in
-        this version of the puzzle: something that has both a literal and figurative meaning, instead of straight up
-        synonyms.
+        constraints. Shortly after, I also came up with the idea for the clues used in this version of the puzzle:
+        something that has both a literal and figurative meaning, instead of straight up synonyms.
         <br><br>
         The next problem was a little weird though: "thirteen" is such a good word. It's way too good. Since it's the
         obvious part of the clues in this puzzle, I had to avoid using an answer that would already reveal itself with
