@@ -30,6 +30,19 @@
         I wish I had another option to do the example with less numbers, so it's not as overwhelming from the first
         line, but I thought that would be be far more important to give a chance to nail down the stroke order easily
         once you notice the seven-segment shape, instead of leaving things vague.<br><br>
+        Another aspect of the localization here is the fact that it fits Dia less than the original. Kanji stroke order
+        and calligraphy fit Dia well, while a seven-segment, primarily used in technology, does not. Had I gone with a
+        different puzzle, I could've easily picked something that was more representative of Dia. But I think that's an
+        interesting choice to make, as it depends on what exactly the goal of the localization is.<br>
+        If this was an official project I was responsible for, I think this puzzle would be different - as a campaign to
+        advertise the game, I think it would be more about representing characters well than having the puzzles be
+        similar to the original ones, and you would have seen a wholly different puzzle that fits Dia. However, this is
+        a fan project, and my personal goal is to give people who don't know to Japanese the chance to play these
+        puzzles. That means that I want to stay as close to the original puzzle as possible, so you get a similar
+        experience as everyone who solved the original.<br>
+        That's why Dia's puzzle is going digital - it was the best way to bring the same solution approach into
+        something understandable by non-Japanese players. There might be similar problems coming up in future puzzles,
+        but the goal I have for this project will stay the same in these cases, just like here :)<br><br>
         The fact that the Dia's puzzle has the answer "fan" and shares a mechanic with Eli's puzzle was completely
         unintended - I had the puzzle idea and answer before I realized. It's a lucky coincidence, but a very welcome
         accidental reference :)
