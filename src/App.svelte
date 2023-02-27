@@ -1,6 +1,7 @@
 <script lang="ts">
     import Modal from "$lib/Modal.svelte";
     import ModalAbout from "$lib/ModalAbout.svelte";
+    import PuzzleAyumu from "$lib/puzzles/PuzzleAyumu.svelte";
     import PuzzleChika from "$lib/puzzles/PuzzleChika.svelte";
     import PuzzleDia from "$lib/puzzles/PuzzleDia.svelte";
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
@@ -82,7 +83,7 @@
         <MemberButton color="#C252C6" disabled name="Mari"/>
         <MemberButton color="#FF6FBE" disabled name="Ruby"/>
         <div class="w-full h-8">&nbsp;</div>
-        <MemberButton color="#FFBFE0" disabled name="Ayumu"/>
+        <MemberButton color="#FFBFE0" name="Ayumu" on:click={modal("Ayumu's Puzzle", PuzzleAyumu)}/>
         <MemberButton color="#F5FF8A" disabled name="Kasumi"/>
         <MemberButton color="#BBEDFF" disabled name="Shizuku"/>
         <MemberButton color="#4A2FED" disabled name="Karin" whiteText/>
