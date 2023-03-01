@@ -7,6 +7,7 @@
     import PuzzleHanayo from "$lib/puzzles/PuzzleHanayo.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
     import PuzzleKanan from "$lib/puzzles/PuzzleKanan.svelte";
+    import PuzzleKarin from "$lib/puzzles/PuzzleKarin.svelte";
     import PuzzleKotori from "$lib/puzzles/PuzzleKotori.svelte";
     import PuzzleMaki from "$lib/puzzles/PuzzleMaki.svelte";
     import PuzzleNico from "$lib/puzzles/PuzzleNico.svelte";
@@ -85,7 +86,7 @@
         <MemberButton color="#FFBFE0" disabled name="Ayumu"/>
         <MemberButton color="#F5FF8A" disabled name="Kasumi"/>
         <MemberButton color="#BBEDFF" disabled name="Shizuku"/>
-        <MemberButton color="#4A2FED" disabled name="Karin" whiteText/>
+        <MemberButton color="#4A2FED" name="Karin" on:click={modal("Karin's Puzzle", PuzzleKarin)} whiteText/>
         <MemberButton color="#FF8246" disabled name="Ai"/>
         <MemberButton color="#BE82FF" disabled name="Kanata"/>
         <MemberButton color="#F60E0E" disabled name="Setsuna"/>
