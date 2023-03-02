@@ -14,6 +14,7 @@
     import PuzzleRiko from "$lib/puzzles/PuzzleRiko.svelte";
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
+    import PuzzleYoshiko from "$lib/puzzles/PuzzleYoshiko.svelte";
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
@@ -77,7 +78,7 @@
         <MemberButton color="#27C1B7" name="Kanan" on:click={modal("Kanan's Puzzle", PuzzleKanan)}/>
         <MemberButton color="#DB0839" name="Dia" on:click={modal("Dia's Puzzle", PuzzleDia)} whiteText/>
         <MemberButton color="#66C0FF" name="You" on:click={modal("You's Puzzle", PuzzleYou)}/>
-        <MemberButton color="#C1CAD4" disabled name="Yoshiko"/>
+        <MemberButton color="#C1CAD4" name="Yoshiko" on:click={modal("Yoshiko's Puzzle", PuzzleYoshiko)}/>
         <MemberButton color="#FFD010" disabled name="Hanamaru"/>
         <MemberButton color="#C252C6" disabled name="Mari"/>
         <MemberButton color="#FF6FBE" disabled name="Ruby"/>
