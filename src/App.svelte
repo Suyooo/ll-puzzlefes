@@ -4,6 +4,7 @@
     import PuzzleChika from "$lib/puzzles/PuzzleChika.svelte";
     import PuzzleDia from "$lib/puzzles/PuzzleDia.svelte";
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
+    import PuzzleEmma from "$lib/puzzles/PuzzleEmma.svelte";
     import PuzzleHanayo from "$lib/puzzles/PuzzleHanayo.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
     import PuzzleKanan from "$lib/puzzles/PuzzleKanan.svelte";
@@ -89,7 +90,7 @@
         <MemberButton color="#FF8246" disabled name="Ai"/>
         <MemberButton color="#BE82FF" disabled name="Kanata"/>
         <MemberButton color="#F60E0E" disabled name="Setsuna"/>
-        <MemberButton color="#B1F69C" disabled name="Emma"/>
+        <MemberButton color="#B1F69C" name="Emma" on:click={modal("Emma's Puzzle", PuzzleEmma)}/>
         <MemberButton color="#D0CEE1" disabled name="Rina"/>
         <MemberButton color="#24BD8B" disabled name="Shioriko"/>
         <MemberButton color="#F1F0E6" disabled name="Mia"/>
