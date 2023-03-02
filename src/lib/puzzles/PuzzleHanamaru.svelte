@@ -5,8 +5,7 @@
 <ModalPuzzleBase key="hanamaru" solution="zura" url="/puzzles/17_hanamaru.png">
     <!--<div slot="hint">
         Can you make a connection between the amount of books in each stack and the shape below it?<br>
-        You don't need to think about the properties of the shapes themselves. You need to map the books in the stacks
-        to something about the shape - what is something that can easily be represented in small parts?
+        It's not a property of the shapes, like the amount of sides - it's far more literal.
     </div>-->
     <div slot="explain">
         The shapes are a trapezium (or trapezoid depending on where you live), a square and a circle. The stacks have as
