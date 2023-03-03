@@ -7,10 +7,11 @@
 
     export let name: string;
     export let time: number;
+    export let isBonus: boolean;
     let copied: boolean = false;
 
     function getShareText(): string {
-        return `I solved ${name}'s Puzzle!
+        return `I solved ${name}!
 My time was: ${timeFormat(time)}! #SIF2PuzzleFes
 https://puzzlefes.suyo.be/`;
     }

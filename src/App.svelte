@@ -17,6 +17,7 @@
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
+    import {setContext} from "svelte";
     import {fade} from "svelte-reduced-motion/transition";
 
     let showHelp: boolean = false, modalTitle: string = "", modalComponent = null;
@@ -24,6 +25,8 @@
     function modal(title: string, component: any) {
         return openModal.bind(this, title, component);
     }
+
+    setContext<(title: string, component: any) => (() => void)>("modal", modal);
 
     function openModal(title: string, component: any) {
         modalTitle = title;

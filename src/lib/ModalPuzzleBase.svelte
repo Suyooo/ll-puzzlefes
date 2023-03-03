@@ -4,17 +4,23 @@
     import PageButton from "$lib/styled/PageButton.svelte";
     import {timeFormat} from "$lib/timeFormat.js";
     import {createState, endTimer, startTimer, STATES} from "$stores/state";
-    import {onDestroy} from "svelte";
+    import {getContext, onDestroy} from "svelte";
     import {fade, fly} from "svelte-reduced-motion/transition";
 
     export let key: string;
     export let url: string;
     export let solution: string;
+    export let bonus: any | undefined = undefined;
+    export let bonusName: string | undefined = undefined;
+    export let bonusKey: string | undefined = undefined;
+    export let name: string | undefined = undefined;
 
-    let answer: HTMLInputElement, imagePromise: Promise<string>, justSolved: boolean = false, name: string,
-        showHint: boolean = false, showExplain: boolean = false, showLoc: boolean = false,
+    let answer: HTMLInputElement, imagePromise: Promise<string>, justSolved: boolean = false,
+        showHint: boolean = false, showExplain: boolean = false, showLoc: boolean = false, showBonus: boolean = false,
         blockTimerStart: boolean = false;
-    $: name = key.charAt(0).toUpperCase() + key.substring(1);
+    if (name === undefined) name = key.charAt(0).toUpperCase() + key.substring(1) + "'s Puzzle";
+
+    const modal = getContext<(title: string, component: any) => (() => void)>("modal");
 
     if ($STATES[key] === undefined) {
         createState(key);
@@ -138,7 +144,7 @@
             </div>
             <div class="text-xl text-center">
                 <div class="tracking-widest uppercase text-primary-400">Congratulations!</div>
-                You solved {name}'s Puzzle in {timeFormat($STATES[key].totalTime)}!
+                You solved {name} in {timeFormat($STATES[key].totalTime)}!
             </div>
             <div class="pb-6 pt-4">
                 <ShareButton {name} time={$STATES[key].totalTime}/>
@@ -155,6 +161,21 @@
                     <div class="w-full border-2 bg-white mt-1 px-4 py-2 border-primary-400 rounded-2xl">
                         <slot name="explain"/>
                     </div>
+                {/if}
+                {#if bonus}
+                    <PageButton label="See Bonus Puzzle" on:click={() => showBonus = !showBonus}
+                                extraClasses={`w-full mt-4${$STATES[bonusKey] ? "" : " animate-pulse"}`}>
+                        Bonus Puzzle
+                    </PageButton>
+                    {#if showBonus}
+                        <div class="w-full border-2 bg-white mt-1 px-4 py-2 border-primary-400 rounded-2xl">
+                            <slot name="bonus"/>
+                            <PageButton label="Play Bonus Puzzle" on:click={modal(bonusName, bonus)}
+                                        extraClasses="w-full mt-4">
+                                Play Bonus Puzzle
+                            </PageButton>
+                        </div>
+                    {/if}
                 {/if}
                 <PageButton label="Reveal Localization Notes" on:click={() => showLoc = !showLoc}
                             extraClasses="w-full mt-4">
