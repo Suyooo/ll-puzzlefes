@@ -7,7 +7,6 @@
 
     export let name: string;
     export let time: number;
-    export let isBonus: boolean;
     let copied: boolean = false;
 
     function getShareText(): string {
