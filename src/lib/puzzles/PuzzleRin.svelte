@@ -8,7 +8,7 @@
         Also, remember the hint at the bottom - you are looking for a type of food.
     </div>
     <div slot="explain">
-        The image represents the word "dreaming". Assigning the letters to the symbols and replacing the symbols in the
+        The image represents the word "dancer". Assigning the letters to the symbols and replacing the symbols in the
         second line with those letters reveals the answer "ramen".
     </div>
     <div slot="loc">
