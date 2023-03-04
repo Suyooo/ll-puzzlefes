@@ -3,11 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="ruby" solution="yarn" url="/puzzles/19_ruby.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         What is that shape, and what to the icons of people on it mean? What does it repesent?<br>
         Once you figure out what the icons are, you should be able to fill in the clues by thinking about how the two
         icons are related.
-    </div>-->
+    </div>
     <div slot="explain">
         The figure is a family tree. On the left, you have "Dia", on the right, you have "Ruby". They are "sisters".<br>
         Putting these three words in the appropriate slots and taking the letters in the numbered spots reveals the

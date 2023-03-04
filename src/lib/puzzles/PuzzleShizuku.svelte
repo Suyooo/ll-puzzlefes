@@ -3,11 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="shizuku" solution="stage" url="/puzzles/203_shizuku.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         For the first clue, you probably already have some idea of what word could work in the sentence. Try looking up
         synonyms, maybe you can find a word that fits in the slots!<br>
         For the second clue, think about that time frame that is mentioned - what might be different in two years?
-    </div>-->
+    </div>
     <div slot="explain">
         The first row can be filled with "passionate", the second row can be filled with "graduate".<br>
         Following the numbered slots, you can find the answer, "stage".

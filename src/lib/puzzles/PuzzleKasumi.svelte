@@ -3,10 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="kasumi" solution="wonder" url="/puzzles/202_kasumi.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         From the examples, you can tell what the boxed letters must turn into. Try to find a rule for that change.<br>
         Speaking out loud might help in finding out what the substitutions have in common.
-    </div>-->
+    </div>
     <div slot="explain">
         Take the boxed letter and it's position in the alphabet. The box is substituted with a soundalike of that
         number. The box in "per[d]m" contains "d", the fourth letter of the alphabet, which means this example results

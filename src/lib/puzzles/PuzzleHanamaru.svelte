@@ -3,10 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="hanamaru" solution="zura" url="/puzzles/17_hanamaru.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         Can you make a connection between the amount of books in each stack and the shape below it?<br>
         It's not a property of the shapes, like the amount of sides - it's far more literal.
-    </div>-->
+    </div>
     <div slot="explain">
         The shapes are a trapezium (or trapezoid depending on where you live), a square and a circle. The stacks have as
         many books as there are characters in the shape names, so each book represents one letter. Taking the letters

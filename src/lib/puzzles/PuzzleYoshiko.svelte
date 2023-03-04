@@ -3,10 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="yoshiko" solution="circle" url="/puzzles/16_yoshiko.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         There is one obvious way to put 13 into that grid. But how can that other axis be filled?<br>
         Think about what else 13 can represent or stand for.
-    </div>-->
+    </div>
     <div slot="explain">
         On the horizontal, "thirteen" fits. On the vertical, the figurative meaning of 13 has to be used - "unlucky".
         <br>

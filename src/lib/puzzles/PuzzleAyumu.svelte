@@ -3,10 +3,12 @@
 </script>
 
 <ModalPuzzleBase key="ayumu" solution="bun" url="/puzzles/201_ayumu.png">
-    <!--<div slot="hint">
-        What do the amount of slices, including the ones already eaten, and the thing in the image have in common?<br>
-        Make sure you start from the top of each circle, going clockwise.
-    </div>-->
+    <div slot="hint">
+        What do the amount of slices, including the ones already eaten, and the thing in the image have in common? Make
+        sure you start from the top of each circle, going clockwise.<br>
+        In case you have trouble recognizing the thing on the right side, it is a kind of spit cake - a group of cakes
+        mainly from Europe - that was brought over to Japan and got very popular there.
+    </div>
     <div slot="explain">
         The left image shows a cherry pie. Assigning the nine letters to the nine slices, from the top in clockwise
         order so the "p" lines up with the fork, and then combining the letters in the slices that have been taken away,
