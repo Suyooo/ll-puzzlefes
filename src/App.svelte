@@ -18,6 +18,7 @@
     import PuzzleRiko from "$lib/puzzles/PuzzleRiko.svelte";
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
     import PuzzleRuby from "$lib/puzzles/PuzzleRuby.svelte";
+    import PuzzleShioriko from "$lib/puzzles/PuzzleShioriko.svelte";
     import PuzzleShizuku from "$lib/puzzles/PuzzleShizuku.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import PuzzleYoshiko from "$lib/puzzles/PuzzleYoshiko.svelte";
@@ -101,7 +102,7 @@
         <MemberButton color="#F60E0E" disabled name="Setsuna"/>
         <MemberButton color="#B1F69C" disabled name="Emma"/>
         <MemberButton color="#D0CEE1" disabled name="Rina"/>
-        <MemberButton color="#24BD8B" disabled name="Shioriko"/>
+        <MemberButton color="#24BD8B" name="Shioriko" on:click={modal("Shioriko's Puzzle", PuzzleShioriko)}/>
         <MemberButton color="#F1F0E6" disabled name="Mia"/>
         <MemberButton color="#F8C8C4" disabled name="Lanzhu"/>
         <MemberButton color="#000" disabled name="Yuu" whiteText/>
