@@ -22,6 +22,7 @@
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import PuzzleYoshiko from "$lib/puzzles/PuzzleYoshiko.svelte";
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
+    import PuzzleYu from "$lib/puzzles/PuzzleYu.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
     import {setContext} from "svelte";
@@ -104,7 +105,7 @@
         <MemberButton color="#24BD8B" disabled name="Shioriko"/>
         <MemberButton color="#F1F0E6" disabled name="Mia"/>
         <MemberButton color="#F8C8C4" disabled name="Lanzhu"/>
-        <MemberButton color="#000" disabled name="Yuu" whiteText/>
+        <MemberButton color="#000" name="Yu" on:click={modal("Yu's Puzzle", PuzzleYu)} whiteText/>
         <div class="w-full h-8">&nbsp;</div>
         <MemberButton color="#FF7F27" disabled name="Kanon"/>
         <MemberButton color="#A0FFF9" disabled name="Keke"/>
