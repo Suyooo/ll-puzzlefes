@@ -107,7 +107,7 @@
         <MemberButton color="#000" disabled name="Yuu" whiteText/>
         <div class="w-full h-8">&nbsp;</div>
         <MemberButton color="#FF7F27" disabled name="Kanon"/>
-        <MemberButton color="#A0FFF9" disabled name="Keke"/>
+        <MemberButton color="#A0FFF9" name="Keke"/>
         <MemberButton color="#FF6E90" disabled name="Chisato"/>
         <MemberButton color="#74F466" disabled name="Sumire"/>
         <MemberButton color="#0000A0" disabled name="Ren" whiteText/>
