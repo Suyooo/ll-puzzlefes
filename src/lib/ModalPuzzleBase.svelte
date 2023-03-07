@@ -177,14 +177,16 @@
                         </div>
                     {/if}
                 {/if}
-                <PageButton label="Reveal Localization Notes" on:click={() => showLoc = !showLoc}
-                            extraClasses="w-full mt-4">
-                    Localization Notes
-                </PageButton>
-                {#if showLoc}
-                    <div class="w-full border-2 bg-white mt-1 px-4 py-2 border-primary-400 rounded-2xl">
-                        <slot name="loc"/>
-                    </div>
+                {#if $$slots.loc}
+                    <PageButton label="Reveal Localization Notes" on:click={() => showLoc = !showLoc}
+                                extraClasses="w-full mt-4">
+                        Localization Notes
+                    </PageButton>
+                    {#if showLoc}
+                        <div class="w-full border-2 bg-white mt-1 px-4 py-2 border-primary-400 rounded-2xl">
+                            <slot name="loc"/>
+                        </div>
+                    {/if}
                 {/if}
             </div>
         {/if}
