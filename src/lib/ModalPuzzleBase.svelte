@@ -43,7 +43,7 @@
         }));
 
     function submit() {
-        const submittedAnswer = answer.value.toLowerCase().trim();
+        const submittedAnswer = answer.value.toLowerCase().replace(/[^a-z]/g, "");
         if (submittedAnswer === "") return;
 
         if (submittedAnswer === solution) {
