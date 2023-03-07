@@ -19,6 +19,7 @@
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
     import PuzzleRuby from "$lib/puzzles/PuzzleRuby.svelte";
     import PuzzleShizuku from "$lib/puzzles/PuzzleShizuku.svelte";
+    import PuzzleSumire from "$lib/puzzles/PuzzleSumire.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import PuzzleYoshiko from "$lib/puzzles/PuzzleYoshiko.svelte";
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
@@ -109,7 +110,7 @@
         <MemberButton color="#FF7F27" disabled name="Kanon"/>
         <MemberButton color="#A0FFF9" disabled name="Keke"/>
         <MemberButton color="#FF6E90" disabled name="Chisato"/>
-        <MemberButton color="#74F466" disabled name="Sumire"/>
+        <MemberButton color="#74F466" name="Sumire" on:click={modal("Sumire's Puzzle", PuzzleSumire)}/>
         <MemberButton color="#0000A0" disabled name="Ren" whiteText/>
         <MemberButton color="#FFF442" disabled name="Kinako"/>
         <MemberButton color="#FF3535" disabled name="Mei"/>
