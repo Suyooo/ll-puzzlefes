@@ -2,6 +2,7 @@
     import Modal from "$lib/Modal.svelte";
     import ModalAbout from "$lib/ModalAbout.svelte";
     import PuzzleAyumu from "$lib/puzzles/PuzzleAyumu.svelte";
+    import PuzzleAi from "$lib/puzzles/PuzzleAi.svelte";
     import PuzzleChika from "$lib/puzzles/PuzzleChika.svelte";
     import PuzzleDia from "$lib/puzzles/PuzzleDia.svelte";
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
@@ -97,7 +98,7 @@
         <MemberButton color="#F5FF8A" name="Kasumi" on:click={modal("Kasumi's Puzzle", PuzzleKasumi)}/>
         <MemberButton color="#BBEDFF" name="Shizuku" on:click={modal("Shizuku's Puzzle", PuzzleShizuku)}/>
         <MemberButton color="#4A2FED" name="Karin" on:click={modal("Karin's Puzzle", PuzzleKarin)} whiteText/>
-        <MemberButton color="#FF8246" disabled name="Ai"/>
+        <MemberButton color="#FF8246" name="Ai" on:click={modal("Ai's Puzzle", PuzzleAi)}/>
         <MemberButton color="#BE82FF" disabled name="Kanata"/>
         <MemberButton color="#F60E0E" disabled name="Setsuna"/>
         <MemberButton color="#B1F69C" disabled name="Emma"/>
