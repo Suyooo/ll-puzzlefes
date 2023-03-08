@@ -1,8 +1,8 @@
 <script lang="ts">
     import Modal from "$lib/Modal.svelte";
     import ModalAbout from "$lib/ModalAbout.svelte";
-    import PuzzleAyumu from "$lib/puzzles/PuzzleAyumu.svelte";
     import PuzzleAi from "$lib/puzzles/PuzzleAi.svelte";
+    import PuzzleAyumu from "$lib/puzzles/PuzzleAyumu.svelte";
     import PuzzleChika from "$lib/puzzles/PuzzleChika.svelte";
     import PuzzleDia from "$lib/puzzles/PuzzleDia.svelte";
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
@@ -10,9 +10,9 @@
     import PuzzleHanayo from "$lib/puzzles/PuzzleHanayo.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
     import PuzzleKanan from "$lib/puzzles/PuzzleKanan.svelte";
-    import PuzzleKasumi from "$lib/puzzles/PuzzleKasumi.svelte";
-    import PuzzleKarin from "$lib/puzzles/PuzzleKarin.svelte";
     import PuzzleKanata from "$lib/puzzles/PuzzleKanata.svelte";
+    import PuzzleKarin from "$lib/puzzles/PuzzleKarin.svelte";
+    import PuzzleKasumi from "$lib/puzzles/PuzzleKasumi.svelte";
     import PuzzleKotori from "$lib/puzzles/PuzzleKotori.svelte";
     import PuzzleMaki from "$lib/puzzles/PuzzleMaki.svelte";
     import PuzzleMari from "$lib/puzzles/PuzzleMari.svelte";
@@ -27,10 +27,12 @@
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
+    import {STATES} from "$stores/state";
     import {setContext} from "svelte";
     import {fade} from "svelte-reduced-motion/transition";
 
-    let showHelp: boolean = false, modalTitle: string = "", modalComponent = null;
+    let showHelp: boolean = false, modalTitle: string = "", modalComponent = null, solved: number = 0;
+    $: solved = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length;
 
     function modal(title: string, component: any) {
         return openModal.bind(this, title, component);
@@ -118,6 +120,17 @@
         <MemberButton color="#FF3535" disabled name="Mei"/>
         <MemberButton color="#B2FFDD" disabled name="Shiki"/>
         <MemberButton color="#FF51C4" disabled name="Natsumi"/>
+        <div class="w-full my-6 px-2 h-12 w-full font-bold">
+            <div class="rounded-full p-1 uppercase select-none transition-shadow outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
+                <div class="w-full rounded-full overflow-hidden relative flex items-center">
+                    <div class="absolute left-4 text-black tracking-widest w-[100vw]">{solved} / 40 solved</div>
+                    <div class="relative flex-grow-0 h-10 px-2 py-1 tracking-widest flex items-center overflow-hidden"
+                         class:bg-primary={solved > 0} style:width={(solved/0.4)+"%"}>
+                        <div class="absolute left-4 text-white w-[100vw]">{solved} / 40 solved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <PageButton extraClasses="mt-4 w-full max-w-md px-2"
                 label="Visit Original Site"
