@@ -21,6 +21,7 @@
     import PuzzleRiko from "$lib/puzzles/PuzzleRiko.svelte";
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
     import PuzzleRuby from "$lib/puzzles/PuzzleRuby.svelte";
+    import PuzzleShiki from "$lib/puzzles/PuzzleShiki.svelte";
     import PuzzleShizuku from "$lib/puzzles/PuzzleShizuku.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import PuzzleYoshiko from "$lib/puzzles/PuzzleYoshiko.svelte";
@@ -118,7 +119,7 @@
         <MemberButton color="#0000A0" disabled name="Ren" whiteText/>
         <MemberButton color="#FFF442" disabled name="Kinako"/>
         <MemberButton color="#FF3535" disabled name="Mei"/>
-        <MemberButton color="#B2FFDD" disabled name="Shiki"/>
+        <MemberButton color="#B2FFDD" name="Shiki" on:click={modal("Shiki's Puzzle", PuzzleShiki)}/>
         <MemberButton color="#FF51C4" disabled name="Natsumi"/>
         <div class="w-full my-6 px-2 h-12 w-full font-bold">
             <div class="rounded-full p-1 uppercase select-none transition-shadow outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
