@@ -14,6 +14,7 @@
     export let bonusName: string | undefined = undefined;
     export let bonusKey: string | undefined = undefined;
     export let name: string | undefined = undefined;
+    export let cvdAlt: any | undefined = undefined;
 
     let answer: HTMLInputElement, imagePromise: Promise<string>, justSolved: boolean = false,
         showHint: boolean = false, showExplain: boolean = false, showLoc: boolean = false, showBonus: boolean = false,
@@ -131,6 +132,12 @@
                             <div class="bg-gray-500 h-8 flex items-center justify-center rounded-full px-4 py-2 uppercase tracking-widest select-none font-bold text-white">
                                 Hint unlocking tomorrow!
                             </div>
+                        {/if}
+                        {#if cvdAlt}
+                            <PageButton label="Assistance for Color Vision Deficiencies" on:click={modal(name, cvdAlt)}
+                                        extraClasses="w-full mt-4">
+                                Assistance for Color Vision Deficiencies
+                            </PageButton>
                         {/if}
                     </div>
                 </div>

@@ -5,7 +5,7 @@
 </script>
 
 <button aria-disabled={disabled} aria-label={label}
-        class="h-8 flex items-center justify-center rounded-full px-4 py-2 uppercase tracking-widest select-none font-bold text-white {extraClasses ?? ""}"
+        class="min-h-8 flex items-center justify-center rounded-full px-4 py-1 uppercase tracking-widest select-none font-bold text-white {extraClasses ?? ""}"
         class:active:bg-primary-700={!disabled}
         class:active:text-white={!disabled}
         class:bg-gray-500={disabled} class:bg-primary-400={!disabled}
