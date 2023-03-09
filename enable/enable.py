@@ -65,3 +65,48 @@ def sortByNonMatches(words):
         if countNonMatches not in r: r[countNonMatches] = []
         r[countNonMatches].append(w)
     return {k:r[k] for k in sorted(r)}
+
+# generates graphviz file
+delimitersTo = ["actor","atoll","atom","baton","bottom","button","carton","contour","cotton","doctor","editor","factor","gator","history","laptop","motor","pastor","raptor","stock","stocks","stoke","stone","stop","storm","tattoo","vector"]
+delimitersAs = ["alaska","bash","bass","beast","blast","brasil","breast","case","cash","casino","cast","chase","chasm","clash","clasp","class","coast","crash","dash","easel","east","easter","erase","fast","feast","flash","glass","grass","laser","lash","lasso","last","leash","marasca","mash","mask","mass","mast","oasis","pass","past","pasta","pastor","pheasant","plasm","roast","sash","slash","smash","splash","squash","stash","taste","toast","trash","wash","wasp","waste","weasel","yeast"]
+delimitersIs = ["aisle","artist","bistro","bruise","cruise","daisy","disc","disco","dish","disk","division","finish","fish","fist","jurist","kiss","list","miss","mist","noise","poison","prism","prison","scissors","squish","squished","tissue","tonish","twist","vise","waist","whisk","whisper"]
+
+def graph(goals, delimiter, delimiters, maxdepth, edgecol):
+    wordlist = [(w, w.split(delimiter)[0], w.split(delimiter)[1]) for w in delimiters]
+    print(len(wordlist), "transforming words")
+    print("digraph {")
+    for goal in goals:
+        graphRec(goal, delimiter, maxdepth, wordlist, set(), set(), edgecol)
+    print("}")
+
+def graphRec(goal, delimiter, maxdepth, wordlist, skipped, added, edgecol):
+    if maxdepth == 0: return goal in l
+
+    anyfound = False
+    for op in wordlist:
+        if op[2] in goal:
+            newgoal = goal.replace(op[2], op[1])
+            if newgoal in skipped or newgoal.replace(op[1], op[2]) != goal: continue
+            if newgoal in added or graphRec(newgoal, delimiter, maxdepth - 1, wordlist, skipped, added, edgecol) or newgoal in l:
+                added.add(newgoal)
+                anyfound = True
+                if newgoal in l: print(newgoal + "[color=\"red\"];")
+                print(newgoal + " -> " + goal + "[label=\""+op[0]+"\",color=\""+edgecol+"\"];")
+            else:
+                skipped.add(newgoal)
+    return anyfound
+
+def runNatsuCheck():
+    # remember to manually add 2-letter words before
+    ll = [w for w in l if len(w)>1 and len(w)<=5]
+    for w in ll:
+        hits = [0 for c in range(len(w) - 1)]
+        words = set()
+        for start in range(len(w)):
+            for end in range(start+1, len(w)+1):
+                if end-start > 4 or end-start >= len(w): continue
+                if w[start:end] in ll:
+                    words.add(w[start:end])
+                    for i in range(start, end - 1):
+                        hits[i] += 1
+        if min(hits) > 0 and len(words) >= 3: print(w,hits,words)
