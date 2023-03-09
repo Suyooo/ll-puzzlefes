@@ -3,9 +3,9 @@
 </script>
 
 <ModalPuzzleBase key="kanata" solution="sheep" url="/puzzles/206_kanata.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         The word you are looking for is a verb ("to ...").
-    </div>-->
+    </div>
     <div slot="explain">
         The image shows a person while they "sleep". Changing the "l" into an "h" as prompted results in the answer,
         "sheep".

@@ -3,10 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="ai" solution="rap" url="/puzzles/205_ai.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         The first two spots are parts of full words. Can you tell what they are supposed to be? If you read those
         <i>words</i> out loud, they might point you to-<i>words</i> the answer!
-    </div>-->
+    </div>
     <div slot="explain">
         The slots can be filled with "rep", "rep", "rap" and "wrap". Out of those words, the <i>sole</i> one that fits
         the clue is "rap" - so that one is the <i>sole</i>-ution!
