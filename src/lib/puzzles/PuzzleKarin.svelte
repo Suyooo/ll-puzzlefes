@@ -4,7 +4,7 @@
 
 <ModalPuzzleBase key="karin" solution="model" url="/puzzles/204_karin.png">
     <div slot="hint">
-        Pay close attention to the shapes of the corners. Make sure you rotate and flip the lines correctly.
+        Pay close attention to the corners of the shapes. Make sure you rotate and flip the lines correctly.
     </div>
     <div slot="explain">
         Drawing the lines into the answer shapes as shown at the top of the puzzle, it will spell out the answer,
