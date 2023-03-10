@@ -31,6 +31,7 @@
     import PuzzleShioriko from "$lib/puzzles/PuzzleShioriko.svelte";
     import PuzzleShizuku from "$lib/puzzles/PuzzleShizuku.svelte";
     import PuzzleRina from "$lib/puzzles/PuzzleRina.svelte";
+    import PuzzleSumire from "$lib/puzzles/PuzzleSumire.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import PuzzleYoshiko from "$lib/puzzles/PuzzleYoshiko.svelte";
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
@@ -124,7 +125,7 @@
         <MemberButton color="#FF7F27" name="Kanon" on:click={modal("Kanon's Puzzle", PuzzleKanon)}/>
         <MemberButton color="#A0FFF9" name="Keke" on:click={modal("Keke's Puzzle", PuzzleKeke)}/>
         <MemberButton color="#FF6E90" name="Chisato" on:click={modal("Chisato's Puzzle", PuzzleChisato)}/>
-        <MemberButton color="#74F466" disabled name="Sumire"/>
+        <MemberButton color="#74F466" name="Sumire" on:click={modal("Sumire's Puzzle", PuzzleSumire)}/>
         <MemberButton color="#0000A0" disabled name="Ren" whiteText/>
         <MemberButton color="#FFF442" disabled name="Kinako"/>
         <MemberButton color="#FF3535" disabled name="Mei"/>
