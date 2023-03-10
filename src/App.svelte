@@ -7,6 +7,7 @@
     import PuzzleChika from "$lib/puzzles/PuzzleChika.svelte";
     import PuzzleDia from "$lib/puzzles/PuzzleDia.svelte";
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
+    import PuzzleFinal from "$lib/puzzles/PuzzleFinal.svelte";
     import PuzzleHanamaru from "$lib/puzzles/PuzzleHanamaru.svelte";
     import PuzzleHanayo from "$lib/puzzles/PuzzleHanayo.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
@@ -173,7 +174,7 @@
                 </div>
             {:else if solved === 40}
                 <div class="w-full flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300"
-                     in:fade={{delay: 500, duration: 3000}}>
+                     in:fade={{delay: 500, duration: 3000}} on:click={modal("Final Puzzle", PuzzleFinal)}>
                     <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary">
                         Final Puzzle
                     </div>
@@ -186,7 +187,8 @@
                     </div>
                 </div>
             {:else}
-                <div class="basis-2/3 flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300 flex-shrink-0">
+                <div class="basis-2/3 flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300 flex-shrink-0"
+                     on:click={modal("Final Puzzle", PuzzleFinal)}>
                     <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary">
                         Final Puzzle
                     </div>
