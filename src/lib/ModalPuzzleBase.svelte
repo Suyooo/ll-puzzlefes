@@ -18,8 +18,10 @@
 
     let answer: HTMLInputElement, imagePromise: Promise<string>, justSolved: boolean = false,
         showHint: boolean = false, showExplain: boolean = false, showLoc: boolean = false, showBonus: boolean = false,
-        blockTimerStart: boolean = false;
+        blockTimerStart: boolean = false, totalTime: number = 0;
     if (name === undefined) name = key.charAt(0).toUpperCase() + key.substring(1) + "'s Puzzle";
+    $: totalTime = Object.keys($STATES).filter(k => !k.startsWith("bonus_"))
+        .reduce((total, currentKey) => total + $STATES[currentKey].totalTime, 0);
 
     const modal = getContext<(title: string, component: any) => (() => void)>("modal");
 
@@ -152,9 +154,12 @@
             <div class="text-xl text-center">
                 <div class="tracking-widest uppercase text-primary-400">Congratulations!</div>
                 You solved {name} in {timeFormat($STATES[key].totalTime)}!
+                {#if key === "final"}
+                    <br>Your total time for all 41 puzzles was {timeFormat(totalTime)}!!
+                {/if}
             </div>
             <div class="pb-6 pt-4">
-                <ShareButton {name} time={$STATES[key].totalTime}/>
+                <ShareButton {name} time={$STATES[key].totalTime} finalTotal={key === "final" ? totalTime : 0}/>
             </div>
         {/if}
 
