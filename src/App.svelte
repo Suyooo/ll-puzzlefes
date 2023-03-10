@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Correct from "$icon/Correct.svelte";
     import Modal from "$lib/Modal.svelte";
     import ModalAbout from "$lib/ModalAbout.svelte";
     import PuzzleAi from "$lib/puzzles/PuzzleAi.svelte";
@@ -27,13 +28,14 @@
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
+    import {timeFormat} from "$lib/timeFormat.js";
     import {STATES} from "$stores/state";
     import {setContext} from "svelte";
     import {fade} from "svelte-reduced-motion/transition";
 
-    let showHelp: boolean = false, modalTitle: string = "", modalComponent = null, solved: number = 0,
-        flip: boolean = false;
-    $: solved = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length;
+    let showHelp: boolean = false, modalTitle: string = "", modalComponent = null,
+        solved: number = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length,
+        flip: boolean = solved === 40 /* only flip by default if all but the final puzzle have been solved */;
 
     function modal(title: string, component: any) {
         return openModal.bind(this, title, component);
@@ -49,6 +51,16 @@
 
     function closeModal() {
         modalComponent = null;
+
+        const newSolved = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length;
+        if (solved < 40 && newSolved === 40) {
+            // The player just solved the final normal puzzle - reveal the final puzzle!
+            requestAnimationFrame(() => document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight);
+            flip = true;
+        } else {
+            document.scrollingElement.scrollTop = 0;
+        }
+        solved = newSolved;
     }
 </script>
 
@@ -140,16 +152,45 @@
         <MemberButton color="#FF3535" disabled {flip} flipClue="4····" name="Mei"/>
         <MemberButton color="#B2FFDD" disabled {flip} flipClue="6···" name="Shiki"/>
         <MemberButton color="#FF51C4" disabled {flip} flipClue="·9···" name="Natsumi"/>
-        <div class="w-full my-6 px-2 h-12 w-full font-bold">
-            <div class="rounded-full p-1 uppercase select-none transition-shadow outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
-                <div class="w-full rounded-full overflow-hidden relative flex items-center">
-                    <div class="absolute left-4 text-black tracking-widest w-[100vw]">{solved} / 40 solved</div>
-                    <div class="relative flex-grow-0 h-10 px-2 py-1 tracking-widest flex items-center overflow-hidden"
-                         class:bg-primary={solved > 0} style:width={(solved/0.4)+"%"}>
-                        <div class="absolute left-4 text-white w-[100vw]">{solved} / 40 solved</div>
+        <div class="w-full my-6 px-2 w-full font-bold flex gap-x-4">
+            {#if solved < 40}
+                <div class="w-full h-12 rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
+                    <div class="w-full rounded-full overflow-hidden relative flex items-center">
+                        <div class="absolute left-4 text-black tracking-widest w-[100vw]">{solved} / 40 solved</div>
+                        <div class="relative flex-grow-0 h-10 px-2 py-1 tracking-widest flex items-center overflow-hidden"
+                             class:bg-primary={solved > 0} style:width={(solved/0.4)+"%"}>
+                            <div class="absolute left-4 text-white w-[100vw]">{solved} / 40 solved</div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {:else if solved === 40}
+                <div class="w-full flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300"
+                     in:fade={{delay: 500, duration: 3000}}>
+                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary">
+                        Final Puzzle
+                    </div>
+                    <div class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2 state text-white">
+                        {#if $STATES["final"] === undefined}
+                            <span class="motion-safe:animate-bounce mt-1 -mb-1 sm:my-0">NEW!</span>
+                        {:else}
+                            <span class="text-xs">Not Solved</span>
+                        {/if}
+                    </div>
+                </div>
+            {:else}
+                <div class="basis-2/3 flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300 flex-shrink-0">
+                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary">
+                        Final Puzzle
+                    </div>
+                    <div class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2 state text-white">
+                        <Correct/> {timeFormat($STATES["final"]?.totalTime ?? 0)}
+                    </div>
+                </div>
+                <div class="basis-1/3 flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300 hover:bg-gray-200 flex-shrink-1 text-sm"
+                     on:click={() => flip = !flip}>
+                    Toggle Clues
+                </div>
+            {/if}
         </div>
     </div>
     <PageButton extraClasses="mt-4 w-full max-w-md px-2"
