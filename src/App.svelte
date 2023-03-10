@@ -99,9 +99,19 @@
         </div>
     {/if}
     {#if solved > 40}
-        <div class="bg-clip-text mt-8 text-5xl font-bold tracking-widest text-transparent thankyou text-center">
+        <div class="w-full px-2 bg-clip-text mt-8 text-5xl font-bold tracking-widest text-transparent thankyou text-center">
             THANK YOU FOR PLAYING!!
         </div>
+        {@const unsolvedBonus = ["bonus_kotori", "bonus_chika", "bonus_rina", "bonus_chisato"].filter(k => (!($STATES[k]?.solved)) ?? true)}
+        {#if unsolvedBonus.length > 0}
+            <div class="w-full max-w-3xl px-2 mt-4 italic text-sm text-center">
+                Psst... you are missing {unsolvedBonus.length > 1 ? "a few bonus puzzles" : "a bonus puzzle"}!
+                There's no additional reward for finishing {unsolvedBonus.length > 1 ? "them" : "it"}, but if you're
+                still up for some more, you can find
+                {unsolvedBonus.length > 1 ? "them on these members' puzzles" : "it on"}
+                {unsolvedBonus.map(s => s.charAt(6).toUpperCase() + s.substring(7)).join(", ")}{unsolvedBonus.length > 1 ? "!" : "'s puzzle!"}
+            </div>
+        {/if}
     {/if}
     <div class="w-full mt-8 max-w-3xl flex-grow flex flex-wrap content-start gap-y-2 sm:gap-y-0">
         <MemberButton color="#FFA336" {flip} flipClue="·····4" name="Honoka"
@@ -235,7 +245,7 @@
 
     .thankyou {
         background-image: linear-gradient(to right, red, gold, lawngreen, deepskyblue, violet, red);
-        background-size: 400% 100%;
+        background-size: 50% 100%;
         animation: movebg 20s linear infinite;
     }
 </style>
