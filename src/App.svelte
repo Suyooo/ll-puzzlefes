@@ -7,6 +7,7 @@
     import PuzzleDia from "$lib/puzzles/PuzzleDia.svelte";
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
     import PuzzleHanamaru from "$lib/puzzles/PuzzleHanamaru.svelte";
+    import PuzzleEmma from "$lib/puzzles/PuzzleEmma.svelte";
     import PuzzleHanayo from "$lib/puzzles/PuzzleHanayo.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
     import PuzzleKanan from "$lib/puzzles/PuzzleKanan.svelte";
@@ -105,7 +106,7 @@
         <MemberButton color="#FF8246" name="Ai" on:click={modal("Ai's Puzzle", PuzzleAi)}/>
         <MemberButton color="#BE82FF" name="Kanata" on:click={modal("Kanata's Puzzle", PuzzleKanata)}/>
         <MemberButton color="#F60E0E" name="Setsuna" on:click={modal("Setsuna's Puzzle", PuzzleSetsuna)}/>
-        <MemberButton color="#B1F69C" disabled name="Emma"/>
+        <MemberButton color="#B1F69C" name="Emma" on:click={modal("Emma's Puzzle", PuzzleEmma)}/>
         <MemberButton color="#D0CEE1" disabled name="Rina"/>
         <MemberButton color="#24BD8B" disabled name="Shioriko"/>
         <MemberButton color="#F1F0E6" disabled name="Mia"/>
