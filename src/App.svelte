@@ -8,15 +8,15 @@
     import PuzzleChisato from "$lib/puzzles/PuzzleChisato.svelte";
     import PuzzleDia from "$lib/puzzles/PuzzleDia.svelte";
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
+    import PuzzleEmma from "$lib/puzzles/PuzzleEmma.svelte";
     import PuzzleFinal from "$lib/puzzles/PuzzleFinal.svelte";
     import PuzzleHanamaru from "$lib/puzzles/PuzzleHanamaru.svelte";
-    import PuzzleEmma from "$lib/puzzles/PuzzleEmma.svelte";
     import PuzzleHanayo from "$lib/puzzles/PuzzleHanayo.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
     import PuzzleKanan from "$lib/puzzles/PuzzleKanan.svelte";
     import PuzzleKanata from "$lib/puzzles/PuzzleKanata.svelte";
-    import PuzzleKarin from "$lib/puzzles/PuzzleKarin.svelte";
     import PuzzleKanon from "$lib/puzzles/PuzzleKanon.svelte";
+    import PuzzleKarin from "$lib/puzzles/PuzzleKarin.svelte";
     import PuzzleKasumi from "$lib/puzzles/PuzzleKasumi.svelte";
     import PuzzleKeke from "$lib/puzzles/PuzzleKeke.svelte";
     import PuzzleKinako from "$lib/puzzles/PuzzleKinako.svelte";
@@ -24,20 +24,20 @@
     import PuzzleLanzhu from "$lib/puzzles/PuzzleLanzhu.svelte";
     import PuzzleMaki from "$lib/puzzles/PuzzleMaki.svelte";
     import PuzzleMari from "$lib/puzzles/PuzzleMari.svelte";
-    import PuzzleMia from "$lib/puzzles/PuzzleMia.svelte";
     import PuzzleMei from "$lib/puzzles/PuzzleMei.svelte";
+    import PuzzleMia from "$lib/puzzles/PuzzleMia.svelte";
     import PuzzleNatsumi from "$lib/puzzles/PuzzleNatsumi.svelte";
     import PuzzleNico from "$lib/puzzles/PuzzleNico.svelte";
     import PuzzleNozomi from "$lib/puzzles/PuzzleNozomi.svelte";
     import PuzzleRen from "$lib/puzzles/PuzzleRen.svelte";
     import PuzzleRiko from "$lib/puzzles/PuzzleRiko.svelte";
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
-    import PuzzleSetsuna from "$lib/puzzles/PuzzleSetsuna.svelte";
-    import PuzzleRuby from "$lib/puzzles/PuzzleRuby.svelte";
-    import PuzzleShioriko from "$lib/puzzles/PuzzleShioriko.svelte";
-    import PuzzleShiki from "$lib/puzzles/PuzzleShiki.svelte";
-    import PuzzleShizuku from "$lib/puzzles/PuzzleShizuku.svelte";
     import PuzzleRina from "$lib/puzzles/PuzzleRina.svelte";
+    import PuzzleRuby from "$lib/puzzles/PuzzleRuby.svelte";
+    import PuzzleSetsuna from "$lib/puzzles/PuzzleSetsuna.svelte";
+    import PuzzleShiki from "$lib/puzzles/PuzzleShiki.svelte";
+    import PuzzleShioriko from "$lib/puzzles/PuzzleShioriko.svelte";
+    import PuzzleShizuku from "$lib/puzzles/PuzzleShizuku.svelte";
     import PuzzleSumire from "$lib/puzzles/PuzzleSumire.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import PuzzleYoshiko from "$lib/puzzles/PuzzleYoshiko.svelte";
@@ -51,8 +51,7 @@
     import {fade} from "svelte-reduced-motion/transition";
 
     let showHelp: boolean = false, modalTitle: string = "", modalComponent = null,
-        solved: number = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length,
-        flip: boolean = solved === 40 /* only flip by default if all but the final puzzle have been solved */;
+        solved: number = 40, flip: boolean = false;
 
     function modal(title: string, component: any) {
         return openModal.bind(this, title, component);
@@ -68,20 +67,6 @@
 
     function closeModal() {
         modalComponent = null;
-
-        const newSolved = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length;
-        if (solved < 40 && newSolved === 40) {
-            // The player just solved the last normal puzzle - reveal the final puzzle!
-            requestAnimationFrame(() => document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight);
-            flip = true;
-        } else {
-            if (solved < 41 && newSolved === 41) {
-                // The player just solved the final puzzle!! Flip clues back
-                flip = false;
-            }
-            document.scrollingElement.scrollTop = 0;
-        }
-        solved = newSolved;
     }
 </script>
 
@@ -166,28 +151,44 @@
         <MemberButton color="#BBEDFF" {flip} flipClue="0····" name="Shizuku"
                       on:click={modal("Shizuku's Puzzle", PuzzleShizuku)}/>
         <MemberButton color="#4A2FED" {flip} flipClue="··2··" name="Karin"
-                      on:click={modal("Karin's Puzzle", PuzzleKarin)}
-                      whiteText/>
-        <MemberButton color="#FF8246" {flip} flipClue="4··" name="Ai" on:click={modal("Ai's Puzzle", PuzzleAi)}/>
+                      on:click={modal("Karin's Puzzle", PuzzleKarin)} whiteText/>
+        <MemberButton color="#FF8246" {flip} flipClue="4··" name="Ai"
+                      on:click={modal("Ai's Puzzle", PuzzleAi)}/>
         <MemberButton color="#BE82FF" {flip} flipClue="0····" name="Kanata"
                       on:click={modal("Kanata's Puzzle", PuzzleKanata)}/>
-        <MemberButton color="#F60E0E" on:click={modal("Setsuna's Puzzle", PuzzleSetsuna)} {flip} flipClue="··9··" name="Setsuna"/>
-        <MemberButton color="#B1F69C" on:click={modal("Emma's Puzzle", PuzzleEmma)} {flip} flipClue="·5··" name="Emma"/>
-        <MemberButton color="#D0CEE1" on:click={modal("Rina's Puzzle", PuzzleRina)} {flip} flipClue="···1··" name="Rina"/>
-        <MemberButton color="#24BD8B" on:click={modal("Shioriko's Puzzle", PuzzleShioriko)} {flip} flipClue="···7" name="Shioriko"/>
-        <MemberButton color="#F1F0E6" on:click={modal("Mia's Puzzle", PuzzleMia)} {flip} flipClue="·····2" name="Mia"/>
-        <MemberButton color="#F8C8C4" on:click={modal("Lanzhu's Puzzle", PuzzleLanzhu)} {flip} flipClue="·3··" name="Lanzhu"/>
-        <MemberButton color="#000" on:click={modal("Yu's Puzzle", PuzzleYu)} {flip} flipClue="·9·" name="Yu" whiteText/>
+        <MemberButton color="#F60E0E" {flip} flipClue="··9··" name="Setsuna"
+                      on:click={modal("Setsuna's Puzzle", PuzzleSetsuna)}/>
+        <MemberButton color="#B1F69C" {flip} flipClue="·5··" name="Emma"
+                      on:click={modal("Emma's Puzzle", PuzzleEmma)}/>
+        <MemberButton color="#D0CEE1" {flip} flipClue="···1··" name="Rina"
+                      on:click={modal("Rina's Puzzle", PuzzleRina)}/>
+        <MemberButton color="#24BD8B" {flip} flipClue="···7"
+                      name="Shioriko" on:click={modal("Shioriko's Puzzle", PuzzleShioriko)}/>
+        <MemberButton color="#F1F0E6" {flip} flipClue="·····2" name="Mia"
+                      on:click={modal("Mia's Puzzle", PuzzleMia)}/>
+        <MemberButton color="#F8C8C4" {flip} flipClue="·3··"
+                      name="Lanzhu" on:click={modal("Lanzhu's Puzzle", PuzzleLanzhu)}/>
+        <MemberButton color="#000" {flip} flipClue="·9·" name="Yu" on:click={modal("Yu's Puzzle", PuzzleYu)}
+                      whiteText/>
         <div class="w-full h-8">&nbsp;</div>
-        <MemberButton color="#FF7F27" on:click={modal("Kanon's Puzzle", PuzzleKanon)} {flip} flipClue="7·····" name="Kanon"/>
-        <MemberButton color="#A0FFF9" on:click={modal("Keke's Puzzle", PuzzleKeke)} {flip} flipClue="·····9·" name="Keke"/>
-        <MemberButton color="#FF6E90" on:click={modal("Chisato's Puzzle", PuzzleChisato)} {flip} flipClue="··5·" name="Chisato"/>
-        <MemberButton color="#74F466" on:click={modal("Sumire's Puzzle", PuzzleSumire)} {flip} flipClue="······8" name="Sumire"/>
-        <MemberButton color="#0000A0" on:click={modal("Ren's Puzzle", PuzzleRen)} {flip} flipClue="···3" name="Ren" whiteText/>
-        <MemberButton color="#FFF442" on:click={modal("Kinako's Puzzle", PuzzleKinako)} {flip} flipClue="·····2" name="Kinako"/>
-        <MemberButton color="#FF3535" on:click={modal("Mei's Puzzle", PuzzleMei)} {flip} flipClue="4····" name="Mei"/>
-        <MemberButton color="#B2FFDD" on:click={modal("Shiki's Puzzle", PuzzleShiki)} {flip} flipClue="6···" name="Shiki"/>
-        <MemberButton color="#FF51C4" on:click={modal("Natsumi's Puzzle", PuzzleNatsumi)} {flip} flipClue="·9···" name="Natsumi"/>
+        <MemberButton color="#FF7F27" {flip} flipClue="7·····"
+                      name="Kanon" on:click={modal("Kanon's Puzzle", PuzzleKanon)}/>
+        <MemberButton color="#A0FFF9" {flip} flipClue="·····9·"
+                      name="Keke" on:click={modal("Keke's Puzzle", PuzzleKeke)}/>
+        <MemberButton color="#FF6E90" {flip} flipClue="··5·"
+                      name="Chisato" on:click={modal("Chisato's Puzzle", PuzzleChisato)}/>
+        <MemberButton color="#74F466" {flip} flipClue="······8"
+                      name="Sumire" on:click={modal("Sumire's Puzzle", PuzzleSumire)}/>
+        <MemberButton color="#0000A0" {flip} flipClue="···3" name="Ren"
+                      on:click={modal("Ren's Puzzle", PuzzleRen)} whiteText/>
+        <MemberButton color="#FFF442" {flip} flipClue="·····2" forceNew
+                      name="Kinako" on:click={modal("Kinako's Puzzle", PuzzleKinako)}/>
+        <MemberButton color="#FF3535" {flip} flipClue="4····" name="Mei"
+                      on:click={modal("Mei's Puzzle", PuzzleMei)}/>
+        <MemberButton color="#B2FFDD" {flip} flipClue="6···"
+                      name="Shiki" on:click={modal("Shiki's Puzzle", PuzzleShiki)}/>
+        <MemberButton color="#FF51C4" {flip} flipClue="·9···"
+                      name="Natsumi" on:click={modal("Natsumi's Puzzle", PuzzleNatsumi)}/>
         <div class="w-full my-6 px-2 w-full font-bold flex gap-x-4">
             {#if solved < 40}
                 <div class="w-full h-12 rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
@@ -200,14 +201,14 @@
                     </div>
                 </div>
             {:else if solved === 40}
-                <div class="w-full flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300"
+                <div class="w-2/3 flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300"
                      in:fade={{delay: 500, duration: 3000}} on:click={modal("Final Puzzle", PuzzleFinal)}>
-                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary">
-                        Final Puzzle
+                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary gap-x-2">
+                        <span>Final Puzzle</span><span class="text-xs">(Bonus)</span>
                     </div>
                     <div class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2 state text-white">
                         {#if $STATES["final"] === undefined}
-                            <span class="motion-safe:animate-bounce mt-1 -mb-1 sm:my-0">NEW!</span>
+                            <span class="mt-1 -mb-1 sm:my-0">NEW!</span>
                         {:else}
                             <span class="text-xs">Not Solved</span>
                         {/if}
@@ -216,8 +217,8 @@
             {:else}
                 <div class="basis-2/3 flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300 flex-shrink-0"
                      on:click={modal("Final Puzzle", PuzzleFinal)}>
-                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary">
-                        Final Puzzle
+                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary gap-x-2">
+                        <span>Final Puzzle</span><span class="text-xs">(Bonus)</span>
                     </div>
                     <div class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2 state text-white">
                         <Correct/> {timeFormat($STATES["final"]?.totalTime ?? 0)}
