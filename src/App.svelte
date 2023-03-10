@@ -24,6 +24,7 @@
     import PuzzleMia from "$lib/puzzles/PuzzleMia.svelte";
     import PuzzleNico from "$lib/puzzles/PuzzleNico.svelte";
     import PuzzleNozomi from "$lib/puzzles/PuzzleNozomi.svelte";
+    import PuzzleRen from "$lib/puzzles/PuzzleRen.svelte";
     import PuzzleRiko from "$lib/puzzles/PuzzleRiko.svelte";
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
     import PuzzleSetsuna from "$lib/puzzles/PuzzleSetsuna.svelte";
@@ -126,7 +127,7 @@
         <MemberButton color="#A0FFF9" name="Keke" on:click={modal("Keke's Puzzle", PuzzleKeke)}/>
         <MemberButton color="#FF6E90" name="Chisato" on:click={modal("Chisato's Puzzle", PuzzleChisato)}/>
         <MemberButton color="#74F466" name="Sumire" on:click={modal("Sumire's Puzzle", PuzzleSumire)}/>
-        <MemberButton color="#0000A0" disabled name="Ren" whiteText/>
+        <MemberButton color="#0000A0" name="Ren" on:click={modal("Ren's Puzzle", PuzzleRen)} whiteText/>
         <MemberButton color="#FFF442" disabled name="Kinako"/>
         <MemberButton color="#FF3535" disabled name="Mei"/>
         <MemberButton color="#B2FFDD" disabled name="Shiki"/>
