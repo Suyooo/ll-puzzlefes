@@ -32,6 +32,7 @@
     import PuzzleSetsuna from "$lib/puzzles/PuzzleSetsuna.svelte";
     import PuzzleRuby from "$lib/puzzles/PuzzleRuby.svelte";
     import PuzzleShioriko from "$lib/puzzles/PuzzleShioriko.svelte";
+    import PuzzleShiki from "$lib/puzzles/PuzzleShiki.svelte";
     import PuzzleShizuku from "$lib/puzzles/PuzzleShizuku.svelte";
     import PuzzleRina from "$lib/puzzles/PuzzleRina.svelte";
     import PuzzleSumire from "$lib/puzzles/PuzzleSumire.svelte";
@@ -132,7 +133,7 @@
         <MemberButton color="#0000A0" name="Ren" on:click={modal("Ren's Puzzle", PuzzleRen)} whiteText/>
         <MemberButton color="#FFF442" name="Kinako" on:click={modal("Kinako's Puzzle", PuzzleKinako)}/>
         <MemberButton color="#FF3535" name="Mei" on:click={modal("Mei's Puzzle", PuzzleMei)}/>
-        <MemberButton color="#B2FFDD" disabled name="Shiki"/>
+        <MemberButton color="#B2FFDD" name="Shiki" on:click={modal("Shiki's Puzzle", PuzzleShiki)}/>
         <MemberButton color="#FF51C4" disabled name="Natsumi"/>
         <div class="w-full my-6 px-2 h-12 w-full font-bold">
             <div class="rounded-full p-1 uppercase select-none transition-shadow outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
