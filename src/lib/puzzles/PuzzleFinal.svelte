@@ -8,7 +8,7 @@
         Have you noticed the puzzle list looks a little different...? Start by writing down everything you need, then
         come back here!<br>
         Try to find out which numbers are the easiest to start with, and don't be afraid of guessing short or
-        half-finished words with some trial-and-error!
+        half-finished words - trial-and-error is fine!
     </div>
     <div slot="explain">
         Using a letter from each of the fourty puzzles as marked on the main page, you can form the message shown.<br>
