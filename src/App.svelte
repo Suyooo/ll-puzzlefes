@@ -67,6 +67,10 @@
             requestAnimationFrame(scrollBottom);
             flip = true;
         } else {
+            if (solved < 41 && newSolved === 41) {
+                // The player just solved the final puzzle!! Flip clues back
+                flip = false;
+            }
             document.scrollingElement.scrollTop = 0;
         }
         solved = newSolved;
