@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Correct from "$icon/Correct.svelte";
     import Modal from "$lib/Modal.svelte";
     import ModalAbout from "$lib/ModalAbout.svelte";
     import PuzzleAi from "$lib/puzzles/PuzzleAi.svelte";
@@ -28,13 +29,14 @@
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
+    import {timeFormat} from "$lib/timeFormat.js";
     import {STATES} from "$stores/state";
     import {setContext} from "svelte";
     import {fade} from "svelte-reduced-motion/transition";
 
     let showHelp: boolean = false, modalTitle: string = "", modalComponent = null,
         solved: number = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length,
-        flip: boolean = false;
+        flip: boolean = solved === 40 /* only flip by default if all but the final puzzle have been solved */;
 
     function modal(title: string, component: any) {
         return openModal.bind(this, title, component);
@@ -62,6 +64,7 @@
                 }
             }
             requestAnimationFrame(scrollBottom);
+            flip = true;
         } else {
             document.scrollingElement.scrollTop = 0;
         }
@@ -168,15 +171,32 @@
                         </div>
                     </div>
                 </div>
-            {:else}
-                <div class="w-full flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-800 outline-gray-800"
+            {:else if solved === 40}
+                <div class="w-full flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300"
                      in:fade={{delay: 500, duration: 3000}}>
-                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-1/2 tracking-wide sm:tracking-widest bg-white text-gray-800">
-                        ?&nbsp;?&nbsp;?&nbsp;?&nbsp;?
+                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary">
+                        Final Puzzle
                     </div>
-                    <div class="flex items-center justify-center gap-x-1 text-black basis-1/2 leading-3 px-2 state text-white">
-                        <span class="text-xs">Coming Tomorrow</span>
+                    <div class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2 state text-white">
+                        {#if $STATES["final"] === undefined}
+                            <span class="motion-safe:animate-bounce mt-1 -mb-1 sm:my-0">NEW!</span>
+                        {:else}
+                            <span class="text-xs">Not Solved</span>
+                        {/if}
                     </div>
+                </div>
+            {:else}
+                <div class="basis-2/3 flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300 flex-shrink-0">
+                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary">
+                        Final Puzzle
+                    </div>
+                    <div class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2 state text-white">
+                        <Correct/> {timeFormat($STATES["final"]?.totalTime ?? 0)}
+                    </div>
+                </div>
+                <div class="basis-1/3 flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300 hover:bg-gray-200 flex-shrink-1 text-sm"
+                     on:click={() => flip = !flip}>
+                    Toggle Clues
                 </div>
             {/if}
         </div>
