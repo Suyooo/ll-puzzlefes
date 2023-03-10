@@ -7,12 +7,16 @@
 
     export let name: string;
     export let time: number;
+    export let finalTotal: number = 0;
     let copied: boolean = false;
 
     function getShareText(): string {
-        return `I solved ${name}!
-My time was: ${timeFormat(time)}! #SIF2PuzzleFes
-https://puzzlefes.suyo.be/`;
+        let s = `I solved ${name}!\nMy time was: ${timeFormat(time)}!`;
+        if (finalTotal > 0) {
+            s += `\nMy total time for every puzzle was: ${timeFormat(finalTotal)}!!`;
+        }
+        s += ` #SIF2PuzzleFes\nhttps://puzzlefes.suyo.be/`;
+        return s;
     }
 
     function shareResult() {
