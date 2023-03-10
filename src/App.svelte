@@ -24,6 +24,7 @@
     import PuzzleMari from "$lib/puzzles/PuzzleMari.svelte";
     import PuzzleMia from "$lib/puzzles/PuzzleMia.svelte";
     import PuzzleMei from "$lib/puzzles/PuzzleMei.svelte";
+    import PuzzleNatsumi from "$lib/puzzles/PuzzleNatsumi.svelte";
     import PuzzleNico from "$lib/puzzles/PuzzleNico.svelte";
     import PuzzleNozomi from "$lib/puzzles/PuzzleNozomi.svelte";
     import PuzzleRen from "$lib/puzzles/PuzzleRen.svelte";
@@ -134,7 +135,7 @@
         <MemberButton color="#FFF442" name="Kinako" on:click={modal("Kinako's Puzzle", PuzzleKinako)}/>
         <MemberButton color="#FF3535" name="Mei" on:click={modal("Mei's Puzzle", PuzzleMei)}/>
         <MemberButton color="#B2FFDD" name="Shiki" on:click={modal("Shiki's Puzzle", PuzzleShiki)}/>
-        <MemberButton color="#FF51C4" disabled name="Natsumi"/>
+        <MemberButton color="#FF51C4" name="Natsumi" on:click={modal("Natsumi's Puzzle", PuzzleNatsumi)}/>
         <div class="w-full my-6 px-2 h-12 w-full font-bold">
             <div class="rounded-full p-1 uppercase select-none transition-shadow outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
                 <div class="w-full rounded-full overflow-hidden relative flex items-center">
