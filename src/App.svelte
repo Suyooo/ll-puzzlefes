@@ -20,6 +20,7 @@
     import PuzzleNozomi from "$lib/puzzles/PuzzleNozomi.svelte";
     import PuzzleRiko from "$lib/puzzles/PuzzleRiko.svelte";
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
+    import PuzzleSetsuna from "$lib/puzzles/PuzzleSetsuna.svelte";
     import PuzzleRuby from "$lib/puzzles/PuzzleRuby.svelte";
     import PuzzleShizuku from "$lib/puzzles/PuzzleShizuku.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
@@ -103,7 +104,7 @@
         <MemberButton color="#4A2FED" name="Karin" on:click={modal("Karin's Puzzle", PuzzleKarin)} whiteText/>
         <MemberButton color="#FF8246" name="Ai" on:click={modal("Ai's Puzzle", PuzzleAi)}/>
         <MemberButton color="#BE82FF" name="Kanata" on:click={modal("Kanata's Puzzle", PuzzleKanata)}/>
-        <MemberButton color="#F60E0E" disabled name="Setsuna"/>
+        <MemberButton color="#F60E0E" name="Setsuna" on:click={modal("Setsuna's Puzzle", PuzzleSetsuna)}/>
         <MemberButton color="#B1F69C" disabled name="Emma"/>
         <MemberButton color="#D0CEE1" disabled name="Rina"/>
         <MemberButton color="#24BD8B" disabled name="Shioriko"/>
