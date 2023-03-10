@@ -71,10 +71,14 @@
 
         const newSolved = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length;
         if (solved < 40 && newSolved === 40) {
-            // The player just solved the final normal puzzle - reveal the final puzzle!
+            // The player just solved the last normal puzzle - reveal the final puzzle!
             requestAnimationFrame(() => document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight);
             flip = true;
         } else {
+            if (solved < 41 && newSolved === 41) {
+                // The player just solved the final puzzle!! Flip clues back
+                flip = false;
+            }
             document.scrollingElement.scrollTop = 0;
         }
         solved = newSolved;
