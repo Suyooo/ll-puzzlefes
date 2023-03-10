@@ -126,7 +126,7 @@
         <MemberButton color="#24BD8B" disabled name="Shioriko"/>
         <MemberButton color="#F1F0E6" disabled name="Mia"/>
         <MemberButton color="#F8C8C4" disabled name="Lanzhu"/>
-        <MemberButton color="#000" disabled name="Yuu" whiteText/>
+        <MemberButton color="#000" disabled name="Yu" whiteText/>
         <div class="w-full h-8">&nbsp;</div>
         <MemberButton color="#FF7F27" disabled name="Kanon"/>
         <MemberButton color="#A0FFF9" disabled name="Keke"/>

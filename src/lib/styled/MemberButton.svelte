@@ -19,7 +19,7 @@
          class:outline-gray-300={!disabled} class:outline-gray-500={disabled}>
         <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest"
              class:text-white={whiteText || disabled} style:background-color={disabled ? "#888" : color}>{name}</div>
-        <div class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2 state">
+        <div class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2 state flex-grow-0 flex-shrink-0">
             {#if disabled}
                 <span class="text-white text-xs">Coming Soon</span>
             {:else if $STATES[key] === undefined}
