@@ -71,170 +71,44 @@ def rec(oi, answersLeft, picks):
 rec(0, set(answers), {c:[] for c in set([k for k in neededCounts])})
 
 """
-=== MAPPING ===
-t training
-h sheep
-a ramen
-n money
-k bakery
-s sister
-f fan
-o model
-r storm
-p piano
-l ball
-a target
-y you
-i rice
-n yarn
-g sewing
-t meat
-h shiny
-e muse
-p passion
-u unison
-z zura
-z showbiz
-l circle
-e cheer
-s stage
-o wonder
-l alps
-v dive
-i bibi
-n bun
-g game
-f ferry
-e test
-s island
-t neat
-i binary
-v clover
-a rap
-l angelic
-
-
-y ferry
-o wonder
-u muse
-s sister
-o passion
-l clover
-v dive
-e test
-d model
-a meat
-l circle
-l island
-t neat
-h cheer
-e angelic
-p piano
-u you
-z zura
-z showbiz
-l ball
-e sheep
-s sewing
-t training
-h shiny
-a target
-n bun
-k bakery
-y binary
-o storm
-u unison
-f fan
-o money
-r rice
-p rap
-l alps
-a game
-y yarn
-i bibi
-n ramen
-g stage
-
-y bakery
-o storm
-u bun
-d island
-i rice
-d model
-i dive
-t neat
-c cheer
-o you
-n ramen
-g training
-r ferry
-a rap
-t stage
-s sheep
-o money
-n binary
-s muse
-o wonder
-l angelic
-v clover
-i bibi
-n yarn
-g sewing
-a target
-l circle
-l alps
-o passion
-f fan
-t meat
-h shiny
-e test
-p piano
-u unison
-z showbiz
-z zura
-l ball
-e game
-s sister
-
-y binary
-o you
-u muse
-d model
-i training
-d island
-i bibi
-t sister
-c rice
-o storm
-n ramen
-g target
-r cheer
-a yarn
-t meat
-s stage
-y ferry
-o passion
-u unison
-v dive
-e sheep
-s sewing
-o piano
-l ball
-v clover
-e money
-d wonder
-a fan
-l angelic
-l circle
-t neat
-h shiny
-e game
-p rap
-u bun
-z zura
-z showbiz
-l alps
-e bakery
-s test
-
+y ferry     4   You
+o you       9   Yu
+u unison    7   Kanon
+d island    2   Kinako
+i bibi      1   Maki
+d model     2   Karin
+i training  1   Umi
+t target    2   Mia
+c cheer     4   Mei
+o passion   9   Keke
+n fan       7   Dia
+g sewing    6   Kotori
+r rap       4   Ai
+a binary    1   Rina
+t neat      7   Shio
+s stage     0   Shizuku
+y bakery    4   Honoka
+o money     9   Natsumi
+u muse      6   Nozomi
+v clover    8   Chika
+e meat      3   Lanzhu
+s sheep     0   Kanata
+o storm     9   Setsuna
+l angelic   5   Eli
+v dive      8   Kanan
+e game      3   Ren
+d wonder    2   Kasumi
+a yarn      1   Ruby
+l alps      5   Emma
+l circle    5   Yohane
+t test      6   Shiki
+h shiny     6   Mari
+e rice      3   Hanayo
+p piano     0   Riko
+u bun       7   Ayumu
+z showbiz   8   Sumire
+z zura      8   Maru
+l ball      5   Chisato
+e ramen     3   Rin
+s sister    0   Nico
 """
