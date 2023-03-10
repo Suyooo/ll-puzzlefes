@@ -33,7 +33,8 @@
     import {fade} from "svelte-reduced-motion/transition";
 
     let showHelp: boolean = false, modalTitle: string = "", modalComponent = null,
-        solved: number = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length;
+        solved: number = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length,
+        flip: boolean = false;
 
     function modal(title: string, component: any) {
         return openModal.bind(this, title, component);
@@ -94,49 +95,68 @@
         </div>
     {/if}
     <div class="w-full mt-8 max-w-3xl flex-grow flex flex-wrap content-start gap-y-2 sm:gap-y-0">
-        <MemberButton color="#FFA336" name="Honoka" on:click={modal("Honoka's Puzzle", PuzzleHonoka)}/>
-        <MemberButton color="#7AEEFF" name="Eli" on:click={modal("Eli's Puzzle", PuzzleEli)}/>
-        <MemberButton color="#CEBFBF" name="Kotori" on:click={modal("Kotori's Puzzle", PuzzleKotori)}/>
-        <MemberButton color="#1769FF" name="Umi" on:click={modal("Umi's Puzzle", PuzzleUmi)} whiteText/>
-        <MemberButton color="#FFF832" name="Rin" on:click={modal("Rin's Puzzle", PuzzleRin)}/>
-        <MemberButton color="#FF503E" name="Maki" on:click={modal("Maki's Puzzle", PuzzleMaki)}/>
-        <MemberButton color="#C455F6" name="Nozomi" on:click={modal("Nozomi's Puzzle", PuzzleNozomi)}/>
-        <MemberButton color="#6AE673" name="Hanayo" on:click={modal("Hanayo's Puzzle", PuzzleHanayo)}/>
-        <MemberButton color="#FF4F91" name="Nico" on:click={modal("Nico's Puzzle", PuzzleNico)}/>
+        <MemberButton color="#FFA336" {flip} flipClue="·····4" name="Honoka"
+                      on:click={modal("Honoka's Puzzle", PuzzleHonoka)}/>
+        <MemberButton color="#7AEEFF" {flip} flipClue="····5··" name="Eli" on:click={modal("Eli's Puzzle", PuzzleEli)}/>
+        <MemberButton color="#CEBFBF" {flip} flipClue="·····6" name="Kotori"
+                      on:click={modal("Kotori's Puzzle", PuzzleKotori)}/>
+        <MemberButton color="#1769FF" {flip} flipClue="···1····" name="Umi" on:click={modal("Umi's Puzzle", PuzzleUmi)}
+                      whiteText/>
+        <MemberButton color="#FFF832" {flip} flipClue="···3·" name="Rin" on:click={modal("Rin's Puzzle", PuzzleRin)}/>
+        <MemberButton color="#FF503E" {flip} flipClue="·1··" name="Maki" on:click={modal("Maki's Puzzle", PuzzleMaki)}/>
+        <MemberButton color="#C455F6" {flip} flipClue="·6··" name="Nozomi"
+                      on:click={modal("Nozomi's Puzzle", PuzzleNozomi)}/>
+        <MemberButton color="#6AE673" {flip} flipClue="···3" name="Hanayo"
+                      on:click={modal("Hanayo's Puzzle", PuzzleHanayo)}/>
+        <MemberButton color="#FF4F91" {flip} flipClue="··0···" name="Nico"
+                      on:click={modal("Nico's Puzzle", PuzzleNico)}/>
         <div class="w-full h-8">&nbsp;</div>
-        <MemberButton color="#FF9547" name="Chika" on:click={modal("Chika's Puzzle", PuzzleChika)}/>
-        <MemberButton color="#FF9EAC" name="Riko" on:click={modal("Riko's Puzzle", PuzzleRiko)}/>
-        <MemberButton color="#27C1B7" name="Kanan" on:click={modal("Kanan's Puzzle", PuzzleKanan)}/>
-        <MemberButton color="#DB0839" name="Dia" on:click={modal("Dia's Puzzle", PuzzleDia)} whiteText/>
-        <MemberButton color="#66C0FF" name="You" on:click={modal("You's Puzzle", PuzzleYou)}/>
-        <MemberButton color="#C1CAD4" name="Yoshiko" on:click={modal("Yoshiko's Puzzle", PuzzleYoshiko)}/>
-        <MemberButton color="#FFD010" name="Hanamaru" on:click={modal("Hanamaru's Puzzle", PuzzleHanamaru)}/>
-        <MemberButton color="#C252C6" name="Mari" on:click={modal("Mari's Puzzle", PuzzleMari)}/>
-        <MemberButton color="#FF6FBE" name="Ruby" on:click={modal("Ruby's Puzzle", PuzzleRuby)}/>
+        <MemberButton color="#FF9547" {flip} flipClue="···8··" name="Chika"
+                      on:click={modal("Chika's Puzzle", PuzzleChika)}/>
+        <MemberButton color="#FF9EAC" {flip} flipClue="0····" name="Riko"
+                      on:click={modal("Riko's Puzzle", PuzzleRiko)}/>
+        <MemberButton color="#27C1B7" {flip} flipClue="··8·" name="Kanan"
+                      on:click={modal("Kanan's Puzzle", PuzzleKanan)}/>
+        <MemberButton color="#DB0839" {flip} flipClue="··7" name="Dia" on:click={modal("Dia's Puzzle", PuzzleDia)}
+                      whiteText/>
+        <MemberButton color="#66C0FF" {flip} flipClue="····4" name="You" on:click={modal("You's Puzzle", PuzzleYou)}/>
+        <MemberButton color="#C1CAD4" {flip} flipClue="····5·" name="Yoshiko"
+                      on:click={modal("Yoshiko's Puzzle", PuzzleYoshiko)}/>
+        <MemberButton color="#FFD010" {flip} flipClue="8···" name="Hanamaru"
+                      on:click={modal("Hanamaru's Puzzle", PuzzleHanamaru)}/>
+        <MemberButton color="#C252C6" {flip} flipClue="·6···" name="Mari"
+                      on:click={modal("Mari's Puzzle", PuzzleMari)}/>
+        <MemberButton color="#FF6FBE" {flip} flipClue="·1··" name="Ruby" on:click={modal("Ruby's Puzzle", PuzzleRuby)}/>
         <div class="w-full h-8">&nbsp;</div>
-        <MemberButton color="#FFBFE0" name="Ayumu" on:click={modal("Ayumu's Puzzle", PuzzleAyumu)}/>
-        <MemberButton color="#F5FF8A" name="Kasumi" on:click={modal("Kasumi's Puzzle", PuzzleKasumi)}/>
-        <MemberButton color="#BBEDFF" name="Shizuku" on:click={modal("Shizuku's Puzzle", PuzzleShizuku)}/>
-        <MemberButton color="#4A2FED" name="Karin" on:click={modal("Karin's Puzzle", PuzzleKarin)} whiteText/>
-        <MemberButton color="#FF8246" name="Ai" on:click={modal("Ai's Puzzle", PuzzleAi)}/>
-        <MemberButton color="#BE82FF" name="Kanata" on:click={modal("Kanata's Puzzle", PuzzleKanata)}/>
-        <MemberButton color="#F60E0E" disabled name="Setsuna"/>
-        <MemberButton color="#B1F69C" disabled name="Emma"/>
-        <MemberButton color="#D0CEE1" disabled name="Rina"/>
-        <MemberButton color="#24BD8B" disabled name="Shioriko"/>
-        <MemberButton color="#F1F0E6" disabled name="Mia"/>
-        <MemberButton color="#F8C8C4" disabled name="Lanzhu"/>
-        <MemberButton color="#000" disabled name="Yu" whiteText/>
+        <MemberButton color="#FFBFE0" {flip} flipClue="·7·" name="Ayumu"
+                      on:click={modal("Ayumu's Puzzle", PuzzleAyumu)}/>
+        <MemberButton color="#F5FF8A" {flip} flipClue="···2··" name="Kasumi"
+                      on:click={modal("Kasumi's Puzzle", PuzzleKasumi)}/>
+        <MemberButton color="#BBEDFF" {flip} flipClue="0····" name="Shizuku"
+                      on:click={modal("Shizuku's Puzzle", PuzzleShizuku)}/>
+        <MemberButton color="#4A2FED" {flip} flipClue="··2··" name="Karin"
+                      on:click={modal("Karin's Puzzle", PuzzleKarin)}
+                      whiteText/>
+        <MemberButton color="#FF8246" {flip} flipClue="4··" name="Ai" on:click={modal("Ai's Puzzle", PuzzleAi)}/>
+        <MemberButton color="#BE82FF" {flip} flipClue="0····" name="Kanata"
+                      on:click={modal("Kanata's Puzzle", PuzzleKanata)}/>
+        <MemberButton color="#F60E0E" disabled {flip} flipClue="··9··" name="Setsuna"/>
+        <MemberButton color="#B1F69C" disabled {flip} flipClue="·5··" name="Emma"/>
+        <MemberButton color="#D0CEE1" disabled {flip} flipClue="···1··" name="Rina"/>
+        <MemberButton color="#24BD8B" disabled {flip} flipClue="···7" name="Shioriko"/>
+        <MemberButton color="#F1F0E6" disabled {flip} flipClue="·····2" name="Mia"/>
+        <MemberButton color="#F8C8C4" disabled {flip} flipClue="·3··" name="Lanzhu"/>
+        <MemberButton color="#000" disabled {flip} flipClue="·9·" name="Yu" whiteText/>
         <div class="w-full h-8">&nbsp;</div>
-        <MemberButton color="#FF7F27" disabled name="Kanon"/>
-        <MemberButton color="#A0FFF9" disabled name="Keke"/>
-        <MemberButton color="#FF6E90" disabled name="Chisato"/>
-        <MemberButton color="#74F466" disabled name="Sumire"/>
-        <MemberButton color="#0000A0" disabled name="Ren" whiteText/>
-        <MemberButton color="#FFF442" disabled name="Kinako"/>
-        <MemberButton color="#FF3535" disabled name="Mei"/>
-        <MemberButton color="#B2FFDD" disabled name="Shiki"/>
-        <MemberButton color="#FF51C4" name="Natsumi" on:click={modal("Natsumi's Puzzle", PuzzleNatsumi)}/>
+        <MemberButton color="#FF7F27" disabled {flip} flipClue="7·····" name="Kanon"/>
+        <MemberButton color="#A0FFF9" disabled {flip} flipClue="·····9·" name="Keke"/>
+        <MemberButton color="#FF6E90" disabled {flip} flipClue="··5·" name="Chisato"/>
+        <MemberButton color="#74F466" disabled {flip} flipClue="······8" name="Sumire"/>
+        <MemberButton color="#0000A0" disabled {flip} flipClue="···3" name="Ren" whiteText/>
+        <MemberButton color="#FFF442" disabled {flip} flipClue="·····2" name="Kinako"/>
+        <MemberButton color="#FF3535" disabled {flip} flipClue="4····" name="Mei"/>
+        <MemberButton color="#B2FFDD" disabled {flip} flipClue="6···" name="Shiki"/>
+        <MemberButton color="#FF51C4" disabled {flip} flipClue="·9···" name="Natsumi" on:click={modal("Natsumi's Puzzle", PuzzleNatsumi)}/>
         <div class="w-full my-6 px-2 w-full font-bold flex gap-x-4">
             {#if solved < 40}
                 <div class="w-full h-12 rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
