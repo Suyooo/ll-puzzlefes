@@ -120,7 +120,7 @@
                 Psst... you are missing {unsolvedBonus.length > 1 ? "a few bonus puzzles" : "a bonus puzzle"}!
                 There's no additional reward for finishing {unsolvedBonus.length > 1 ? "them" : "it"}, but if you're
                 still up for some more, you can find
-                {unsolvedBonus.length > 1 ? "them on these members' puzzles" : "it on"}
+                {unsolvedBonus.length > 1 ? "them on these members' puzzles:" : "it on"}
                 {unsolvedBonus.map(s => s.charAt(6).toUpperCase() + s.substring(7)).join(", ")}{unsolvedBonus.length > 1 ? "!" : "'s puzzle!"}
             </div>
         {/if}
@@ -259,5 +259,11 @@
         background-image: linear-gradient(to right, red, gold, lawngreen, deepskyblue, violet, red);
         background-size: 50% 100%;
         animation: movebg 20s linear infinite;
+    }
+
+    @media (prefers-reduced-motion) {
+        .thankyou {
+            animation: none;
+        }
     }
 </style>
