@@ -90,6 +90,11 @@
             <a href="https://lovelive-sif2.bushimo.jp/preregistration/">Remember to preregister for SIF2!</a>
         </div>
     {/if}
+    {#if solved > 40}
+        <div class="bg-clip-text mt-8 text-5xl font-bold tracking-widest text-transparent thankyou text-center">
+            THANK YOU FOR PLAYING!!
+        </div>
+    {/if}
     <div class="w-full mt-8 max-w-3xl flex-grow flex flex-wrap content-start gap-y-2 sm:gap-y-0">
         <MemberButton color="#FFA336" {flip} flipClue="·····4" name="Honoka"
                       on:click={modal("Honoka's Puzzle", PuzzleHonoka)}/>
@@ -209,3 +214,20 @@
         <Modal title={modalTitle} inner={modalComponent} on:closemodal={closeModal}/>
     {/if}
 </div>
+
+<style lang="postcss">
+    @keyframes movebg {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 400% 0;
+        }
+    }
+
+    .thankyou {
+        background-image: linear-gradient(to right, red, gold, lawngreen, deepskyblue, violet, red);
+        background-size: 400% 100%;
+        animation: movebg 20s linear infinite;
+    }
+</style>
