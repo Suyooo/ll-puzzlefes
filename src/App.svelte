@@ -58,6 +58,7 @@
                 document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
                 if (count > 0) {
                     requestAnimationFrame(scrollBottom);
+                    count--;
                 }
             }
             requestAnimationFrame(scrollBottom);
