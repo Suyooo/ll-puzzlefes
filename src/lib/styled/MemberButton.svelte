@@ -14,7 +14,7 @@
 
 <button aria-disabled={disabled} aria-label={name} class="mb-4 basis-1/3 px-2 h-12 w-full font-bold" on:click
         class:cursor-default={disabled} title={name}>
-    <div class="flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none transition-shadow outline outline-[.125rem] outline-offset-[-.125rem]"
+    <div class="flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem]"
          class:bg-gray-300={!disabled} class:bg-gray-500={disabled} class:hover:bg-gray-200={!disabled}
          class:outline-gray-300={!disabled} class:outline-gray-500={disabled}>
         <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest"

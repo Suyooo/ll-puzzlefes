@@ -6,8 +6,8 @@
     import PuzzleChika from "$lib/puzzles/PuzzleChika.svelte";
     import PuzzleDia from "$lib/puzzles/PuzzleDia.svelte";
     import PuzzleEli from "$lib/puzzles/PuzzleEli.svelte";
-    import PuzzleHanamaru from "$lib/puzzles/PuzzleHanamaru.svelte";
     import PuzzleEmma from "$lib/puzzles/PuzzleEmma.svelte";
+    import PuzzleHanamaru from "$lib/puzzles/PuzzleHanamaru.svelte";
     import PuzzleHanayo from "$lib/puzzles/PuzzleHanayo.svelte";
     import PuzzleHonoka from "$lib/puzzles/PuzzleHonoka.svelte";
     import PuzzleKanan from "$lib/puzzles/PuzzleKanan.svelte";
@@ -22,8 +22,8 @@
     import PuzzleRiko from "$lib/puzzles/PuzzleRiko.svelte";
     import PuzzleRin from "$lib/puzzles/PuzzleRin.svelte";
     import PuzzleRuby from "$lib/puzzles/PuzzleRuby.svelte";
-    import PuzzleShizuku from "$lib/puzzles/PuzzleShizuku.svelte";
     import PuzzleSetsuna from "$lib/puzzles/PuzzleSetsuna.svelte";
+    import PuzzleShizuku from "$lib/puzzles/PuzzleShizuku.svelte";
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import PuzzleYoshiko from "$lib/puzzles/PuzzleYoshiko.svelte";
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
@@ -123,7 +123,7 @@
         <MemberButton color="#B2FFDD" disabled name="Shiki"/>
         <MemberButton color="#FF51C4" disabled name="Natsumi"/>
         <div class="w-full my-6 px-2 h-12 w-full font-bold">
-            <div class="rounded-full p-1 uppercase select-none transition-shadow outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
+            <div class="rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
                 <div class="w-full rounded-full overflow-hidden relative flex items-center">
                     <div class="absolute left-4 text-black tracking-widest w-[100vw]">{solved} / 40 solved</div>
                     <div class="relative flex-grow-0 h-10 px-2 py-1 tracking-widest flex items-center overflow-hidden"
