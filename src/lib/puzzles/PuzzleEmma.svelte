@@ -3,12 +3,12 @@
 </script>
 
 <ModalPuzzleBase key="emma" solution="alps" url="/puzzles/208_emma.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         First clue: Yoshiko claims hers is "dark".<br>
         Second clue: The shape of the icon is a hint.<br>
         Third clue: You should not rest on them.<br>
         Fourth clue: It's similar to a carrot.
-    </div>-->
+    </div>
     <div slot="explain">
         The clues are "aura", "swiss", "laurel" and "parsnip". Placing the starting and ending letters in the shown
         order forms the answer, "alps".

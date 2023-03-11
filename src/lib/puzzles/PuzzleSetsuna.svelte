@@ -3,10 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="setsuna" solution="storm" url="/puzzles/207_setsuna.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         Can you find a connection between the phrases in the cells and the amount of circles around them?<br>
         Some circles are on the border between cells, so they must be about something the cells have in common.
-    </div>-->
+    </div>
     <div slot="explain">
         The phrases in each cell can be shortened into three or four letter abbreviations used in chats or MMORPGs:
         "brb", "rofl", "tfs", "tbh", "imho" and "tia". Each letter of each abbreviation can be assigned to the circles
