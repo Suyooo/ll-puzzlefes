@@ -53,12 +53,11 @@
         const newSolved = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length;
         if (solved < 40 && newSolved === 40) {
             // The player just solved the last normal puzzle - reveal the final puzzle!
-            let count = 10;
+            const endLock = Date.now() + 3000;
             const scrollBottom = () => {
                 document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
-                if (count > 0) {
+                if (Date.now() <= endLock) {
                     requestAnimationFrame(scrollBottom);
-                    count--;
                 }
             }
             requestAnimationFrame(scrollBottom);
