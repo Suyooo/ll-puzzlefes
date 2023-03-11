@@ -179,7 +179,8 @@
         <MemberButton color="#FFF442" disabled {flip} flipClue="·····2" name="Kinako"/>
         <MemberButton color="#FF3535" disabled {flip} flipClue="4····" name="Mei"/>
         <MemberButton color="#B2FFDD" disabled {flip} flipClue="6···" name="Shiki"/>
-        <MemberButton color="#FF51C4" disabled {flip} flipClue="·9···" name="Natsumi" on:click={modal("Natsumi's Puzzle", PuzzleNatsumi)}/>
+        <MemberButton color="#FF51C4" {flip} flipClue="·9···" name="Natsumi"
+                      on:click={modal("Natsumi's Puzzle", PuzzleNatsumi)}/>
         <div class="w-full my-6 px-2 w-full font-bold flex gap-x-4">
             {#if solved < 40}
                 <div class="w-full h-12 rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
