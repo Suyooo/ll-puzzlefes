@@ -5,9 +5,9 @@
 
 <ModalPuzzleBase bonus={PuzzleBonusRina} bonusKey="bonus_rina" bonusName="Rina's Bonus Puzzle"
                  key="rina" solution="binary" url="/puzzles/209_rina.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         The clues should be nouns. If the words you have don't fit into the circles, try finding synonyms!
-    </div>-->
+    </div>
     <div slot="explain">
         The boards represent "joy", "anger" and "grief". Fill the words into the circles above the boards and take the
         numbered letters to get the answer, "binary".
