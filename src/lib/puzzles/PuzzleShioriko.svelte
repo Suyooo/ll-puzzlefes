@@ -3,10 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="shioriko" solution="neat" url="/puzzles/210_shioriko.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         The small symbols in the drawing are representing people.<br>
         What situations can you think of where there is one person in front of many others?
-    </div>-->
+    </div>
     <div slot="explain">
         The drawing represents a classroom. The blue triangle icon is the "teacher", and each of the yellow circles is a
         "student". Using the numbered slots on the right, you can spell out the answer, "neat".
