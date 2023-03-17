@@ -31,6 +31,7 @@
     import PuzzleUmi from "$lib/puzzles/PuzzleUmi.svelte";
     import PuzzleYoshiko from "$lib/puzzles/PuzzleYoshiko.svelte";
     import PuzzleYou from "$lib/puzzles/PuzzleYou.svelte";
+    import PuzzleYu from "$lib/puzzles/PuzzleYu.svelte";
     import MemberButton from "$lib/styled/MemberButton.svelte";
     import PageButton from "$lib/styled/PageButton.svelte";
     import {STATES} from "$stores/state";
@@ -115,7 +116,7 @@
         <MemberButton color="#24BD8B" name="Shioriko" on:click={modal("Shioriko's Puzzle", PuzzleShioriko)}/>
         <MemberButton color="#F1F0E6" name="Mia" on:click={modal("Mia's Puzzle", PuzzleMia)}/>
         <MemberButton color="#F8C8C4" name="Lanzhu" on:click={modal("Lanzhu's Puzzle", PuzzleLanzhu)}/>
-        <MemberButton color="#000" disabled name="Yu" whiteText/>
+        <MemberButton color="#000" name="Yu" on:click={modal("Yu's Puzzle", PuzzleYu)} whiteText/>
         <div class="w-full h-8">&nbsp;</div>
         <MemberButton color="#FF7F27" disabled name="Kanon"/>
         <MemberButton color="#A0FFF9" disabled name="Keke"/>
