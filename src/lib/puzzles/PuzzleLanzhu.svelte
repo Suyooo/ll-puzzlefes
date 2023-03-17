@@ -3,10 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="lanzhu" solution="meat" url="/puzzles/212_lanzhu.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         Something in this puzzle is not what it seems to be.<br>
         Try taking a look at the words for the icons you know for sure, and find what they have in common.
-    </div>-->
+    </div>
     <div slot="explain">
         The first three rows seem like calculations, but actually, the character that looks like the multiplication sign
         is just an "X". All of the clue words contain an "X", and can be split there. For example, in the first row,
