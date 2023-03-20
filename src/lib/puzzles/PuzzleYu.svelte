@@ -3,10 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="yu" solution="you" url="/puzzles/213_yu.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         Pay close attention to where exactly each symbol is placed and which symbols are next to it to understand
         what the arc symbolizes.
-    </div>-->
+    </div>
     <div slot="explain">
         The arc has 26 segments. The left-most one represents the letter "A", and every segment after stands for the
         following letter, all the way up to "Z".<br>
