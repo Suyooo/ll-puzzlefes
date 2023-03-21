@@ -15,6 +15,7 @@
     import PuzzleKarin from "$lib/puzzles/PuzzleKarin.svelte";
     import PuzzleKanon from "$lib/puzzles/PuzzleKanon.svelte";
     import PuzzleKasumi from "$lib/puzzles/PuzzleKasumi.svelte";
+    import PuzzleKeke from "$lib/puzzles/PuzzleKeke.svelte";
     import PuzzleKotori from "$lib/puzzles/PuzzleKotori.svelte";
     import PuzzleLanzhu from "$lib/puzzles/PuzzleLanzhu.svelte";
     import PuzzleMaki from "$lib/puzzles/PuzzleMaki.svelte";
@@ -120,7 +121,7 @@
         <MemberButton color="#000" name="Yu" on:click={modal("Yu's Puzzle", PuzzleYu)} whiteText/>
         <div class="w-full h-8">&nbsp;</div>
         <MemberButton color="#FF7F27" name="Kanon" on:click={modal("Kanon's Puzzle", PuzzleKanon)}/>
-        <MemberButton color="#A0FFF9" disabled name="Keke"/>
+        <MemberButton color="#A0FFF9" name="Keke" on:click={modal("Keke's Puzzle", PuzzleKeke)}/>
         <MemberButton color="#FF6E90" disabled name="Chisato"/>
         <MemberButton color="#74F466" disabled name="Sumire"/>
         <MemberButton color="#0000A0" disabled name="Ren" whiteText/>
