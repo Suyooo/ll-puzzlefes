@@ -3,10 +3,10 @@
 </script>
 
 <ModalPuzzleBase key="kanon" solution="unison" url="/puzzles/31_kanon.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         The words you are looking for are all things that could come out of headphones.<br>
         The word on the last line ends with a "D".
-    </div>-->
+    </div>
     <div slot="explain">
         The clues, from top to bottom, are "song", "music" and "sound". By following the numbers, you can find the
         answer, "unison".
