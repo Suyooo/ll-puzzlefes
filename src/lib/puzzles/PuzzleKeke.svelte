@@ -3,11 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="keke" solution="passion" url="/puzzles/32_keke.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         Start with the clues you know for sure - you should know which city Keke is from, for example - and work from
         there.<br>
         One of the clues contains a space - but just leave it out when entering it into the grid!
-    </div>-->
+    </div>
     <div slot="explain">
         The clues are "napolitan", "shanghai", "schoolidols" and "shibuya". The numbered spaces can then be read to get
         the answer, "passion".
