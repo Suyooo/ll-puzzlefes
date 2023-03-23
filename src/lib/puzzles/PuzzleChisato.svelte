@@ -5,11 +5,11 @@
 
 <ModalPuzzleBase bonus={PuzzleBonusChisato} bonusKey="bonus_chisato" bonusName="Chisato's Bonus Puzzle"
                  key="chisato" solution="ball" url="/puzzles/33_chisato.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         First clue: You can buy these where Chisato works.<br>
         Second clue: This one is a round fruit.<br>
         Third clue: You can actually find these somewhere else in the image.
-    </div>-->
+    </div>
     <div slot="explain">
         The clues are "takoyaki", "melon" and "bun". The numbered spaces result in the answer, "ball".
     </div>
