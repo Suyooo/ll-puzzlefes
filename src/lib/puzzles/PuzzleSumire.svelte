@@ -3,9 +3,9 @@
 </script>
 
 <ModalPuzzleBase key="sumire" solution="showbiz" url="/puzzles/34_sumire.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         The answer is something Sumire has been part of since she was a child.
-    </div>-->
+    </div>
     <div slot="explain">
         The answer is "showbiz".
     </div>
