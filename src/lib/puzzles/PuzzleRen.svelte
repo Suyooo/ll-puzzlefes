@@ -3,11 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="ren" solution="game" url="/puzzles/35_ren.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         All of these clues are inside the school. If you see these clues inside a school, when would that usually be?
         <br>
         Or rather, what would you be having when these clues become relevant?
-    </div>-->
+    </div>
     <div slot="explain">
         Each line represents a school subject - "geography", "math", "music" and "PE".<br>
         Following the marked column allows you to read the answer, "game".
