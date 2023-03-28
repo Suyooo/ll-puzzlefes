@@ -151,8 +151,8 @@
             {:else}
                 <div class="w-full flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-800 outline-gray-800"
                      in:fade={{delay: 500, duration: 3000}}>
-                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-1/2 tracking-wide sm:tracking-widest bg-white text-gray-800">
-                        ?&nbsp;?&nbsp;?&nbsp;?&nbsp;?
+                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-1/2 tracking-wide sm:tracking-widest bg-white text-gray-800 gap-x-2">
+                        <span>Final Puzzle</span><span class="text-xs">(Bonus)</span>
                     </div>
                     <div class="flex items-center justify-center gap-x-1 text-black basis-1/2 leading-3 px-2 state text-white">
                         <span class="text-xs">Coming Tomorrow</span>
