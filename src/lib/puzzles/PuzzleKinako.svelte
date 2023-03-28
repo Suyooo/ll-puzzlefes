@@ -3,11 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="kinako" solution="island" url="/puzzles/36_kinako.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         The position of the circle on the animal is important. Where would you say the front and the back of an animal
         are?<br>
         Besides the front and the back of the animal, you can just consider the rest of animal as one big part.
-    </div>-->
+    </div>
     <div slot="explain">
         If the head of an animal is circled, take the first letter from it's name. If the tail is circled, take the last
         letter. If the torso is circled, take the rest of the letters.<br>
