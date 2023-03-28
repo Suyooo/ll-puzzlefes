@@ -4,10 +4,10 @@
 </script>
 
 <ModalPuzzleBase cvdAlt={PuzzleMeiCvd} key="mei" solution="cheer" url="/puzzles/37_mei.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         Both the number and the colour of each set of penlights is important.<br>
         Can you find a way to relate the number to something about the colour?
-    </div>-->
+    </div>
     <div slot="explain">
         For each set of penlights, take a letter from the name of their colour depending on how many lights there are.
         <br>
@@ -19,7 +19,7 @@
     <div slot="loc">
         This time, we actually have a <i>translated</i> puzzle! The original puzzle works with English words and the
         alphabet, so technically, I could have just copypasted it. There is a fine little detail though which meant I
-        changed something: the answer was "yell".<br>
+        had to make a change: the original answer was "yell".<br>
         It might not immediately be obvious why that had to be changed - that looks like fine English, right? But what
         Japanese people call "yell" is not quite what English speakers would call "yell". An English "yell" is a scream
         or cry, but what the Japanese "yell" actually means is cheering on or supporting someone loudly.<br>
