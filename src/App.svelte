@@ -195,8 +195,8 @@
             {:else if solved === 40}
                 <div class="w-full flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300"
                      in:fade={{delay: 500, duration: 3000}} on:click={modal("Final Puzzle", PuzzleFinal)}>
-                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary">
-                        Final Puzzle
+                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary gap-x-2">
+                        <span>Final Puzzle</span><span class="text-xs">(Bonus)</span>
                     </div>
                     <div class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2 state text-white">
                         {#if $STATES["final"] === undefined}
@@ -209,8 +209,8 @@
             {:else}
                 <div class="basis-2/3 flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-primary outline-primary hover:bg-primary-300 flex-shrink-0"
                      on:click={modal("Final Puzzle", PuzzleFinal)}>
-                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary">
-                        Final Puzzle
+                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-2/3 tracking-wide sm:tracking-widest bg-white text-primary gap-x-2">
+                        <span>Final Puzzle</span><span class="text-xs">(Bonus)</span>
                     </div>
                     <div class="flex items-center justify-center gap-x-1 text-black basis-1/3 leading-3 px-2 state text-white">
                         <Correct/> {timeFormat($STATES["final"]?.totalTime ?? 0)}
