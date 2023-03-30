@@ -3,11 +3,11 @@
 </script>
 
 <ModalPuzzleBase key="shiki" solution="test" url="/puzzles/38_shiki.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         Have you already found some of the clue words for the images? Is there anything they have in common?<br>
         The amount of question marks in each space tell you how long the answer word should be at that point. You can
         use this information to check how long the clue word for each image should be!
-    </div>-->
+    </div>
     <div slot="explain">
         Each of the clue words contains "as", and can be parsed as an instruction in the form of
         <span class="whitespace-nowrap">"X as Y"</span>.<br>
