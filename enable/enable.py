@@ -105,3 +105,18 @@ def runShikiCheck():
     graph(t, "is", delimitersIs, maxdepth, "green")
     print("{ rank = same; "+(";".join(t))+"};")
     print("}")
+
+def runNatsuCheck():
+    # remember to manually add 2-letter words before
+    ll = [w for w in l if len(w)>1 and len(w)<=5]
+    for w in ll:
+        hits = [0 for c in range(len(w) - 1)]
+        words = set()
+        for start in range(len(w)):
+            for end in range(start+1, len(w)+1):
+                if end-start > 4 or end-start >= len(w): continue
+                if w[start:end] in ll:
+                    words.add(w[start:end])
+                    for i in range(start, end - 1):
+                        hits[i] += 1
+        if min(hits) > 0 and len(words) >= 3: print(w,hits,words)

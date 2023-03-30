@@ -24,6 +24,7 @@
     import PuzzleMari from "$lib/puzzles/PuzzleMari.svelte";
     import PuzzleMia from "$lib/puzzles/PuzzleMia.svelte";
     import PuzzleMei from "$lib/puzzles/PuzzleMei.svelte";
+    import PuzzleNatsumi from "$lib/puzzles/PuzzleNatsumi.svelte";
     import PuzzleNico from "$lib/puzzles/PuzzleNico.svelte";
     import PuzzleNozomi from "$lib/puzzles/PuzzleNozomi.svelte";
     import PuzzleRen from "$lib/puzzles/PuzzleRen.svelte";
@@ -46,8 +47,8 @@
     import {setContext} from "svelte";
     import {fade} from "svelte-reduced-motion/transition";
 
-    let showHelp: boolean = false, modalTitle: string = "", modalComponent = null, solved: number = 0;
-    $: solved = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length;
+    let showHelp: boolean = false, modalTitle: string = "", modalComponent = null,
+        solved: number = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length;
 
     function modal(title: string, component: any) {
         return openModal.bind(this, title, component);
@@ -63,6 +64,22 @@
 
     function closeModal() {
         modalComponent = null;
+
+        const newSolved = Object.keys($STATES).filter(k => !k.startsWith("bonus_") && $STATES[k].solved).length;
+        if (solved < 40 && newSolved === 40) {
+            // The player just solved the last normal puzzle - reveal the final puzzle!
+            const endLock = Date.now() + 3000;
+            const scrollBottom = () => {
+                document.scrollingElement.scrollTop = document.scrollingElement.scrollHeight;
+                if (Date.now() <= endLock) {
+                    requestAnimationFrame(scrollBottom);
+                }
+            }
+            requestAnimationFrame(scrollBottom);
+        } else {
+            document.scrollingElement.scrollTop = 0;
+        }
+        solved = newSolved;
     }
 </script>
 
@@ -134,17 +151,29 @@
         <MemberButton color="#FFF442" name="Kinako" on:click={modal("Kinako's Puzzle", PuzzleKinako)}/>
         <MemberButton color="#FF3535" name="Mei" on:click={modal("Mei's Puzzle", PuzzleMei)}/>
         <MemberButton color="#B2FFDD" name="Shiki" on:click={modal("Shiki's Puzzle", PuzzleShiki)}/>
-        <MemberButton color="#FF51C4" disabled name="Natsumi"/>
-        <div class="w-full my-6 px-2 h-12 w-full font-bold">
-            <div class="rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
-                <div class="w-full rounded-full overflow-hidden relative flex items-center">
-                    <div class="absolute left-4 text-black tracking-widest w-[100vw]">{solved} / 40 solved</div>
-                    <div class="relative flex-grow-0 h-10 px-2 py-1 tracking-widest flex items-center overflow-hidden"
-                         class:bg-primary={solved > 0} style:width={(solved/0.4)+"%"}>
-                        <div class="absolute left-4 text-white w-[100vw]">{solved} / 40 solved</div>
+        <MemberButton color="#FF51C4" name="Natsumi" on:click={modal("Natsumi's Puzzle", PuzzleNatsumi)}/>
+        <div class="w-full my-6 px-2 w-full font-bold flex gap-x-4">
+            {#if solved < 40}
+                <div class="w-full h-12 rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-300 outline-gray-300">
+                    <div class="w-full rounded-full overflow-hidden relative flex items-center">
+                        <div class="absolute left-4 text-black tracking-widest w-[100vw]">{solved} / 40 solved</div>
+                        <div class="relative flex-grow-0 h-10 px-2 py-1 tracking-widest flex items-center overflow-hidden"
+                             class:bg-primary={solved > 0} style:width={(solved/0.4)+"%"}>
+                            <div class="absolute left-4 text-white w-[100vw]">{solved} / 40 solved</div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {:else}
+                <div class="w-full flex flex-col sm:flex-row items-center justify-center rounded-full p-1 uppercase select-none outline outline-[.125rem] outline-offset-[-.125rem] bg-gray-800 outline-gray-800"
+                     in:fade={{delay: 500, duration: 3000}}>
+                    <div class="w-[90%] rounded-full h-10 px-2 py-1 flex items-center justify-center basis-1/2 tracking-wide sm:tracking-widest bg-white text-gray-800 gap-x-2">
+                        <span>Final Puzzle</span><span class="text-xs">(Bonus)</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-x-1 text-black basis-1/2 leading-3 px-2 state text-white">
+                        <span class="text-xs">Coming Tomorrow</span>
+                    </div>
+                </div>
+            {/if}
         </div>
     </div>
     <PageButton extraClasses="mt-4 w-full max-w-md px-2"
