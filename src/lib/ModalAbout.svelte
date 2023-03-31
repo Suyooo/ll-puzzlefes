@@ -8,8 +8,7 @@
             <li><a href="https://twitter.com/Suyo_">Twitter</a></li>
         </ul>
         <div class="text-xs">
-            If you have any problems or comments, or want to help with localizing the puzzles, feel free to send me a
-            message!
+            If you have any problems or comments, feel free to send me a message!
         </div>
     </div>
     <div>Some cool stuff used for this site:
