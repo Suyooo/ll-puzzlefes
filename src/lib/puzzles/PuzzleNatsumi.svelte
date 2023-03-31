@@ -3,9 +3,9 @@
 </script>
 
 <ModalPuzzleBase key="natsumi" solution="money" url="/puzzles/39_natsumi.png">
-    <!--<div slot="hint">
+    <div slot="hint">
         Each of the clues has only two bars in the signal meter lit up. What could those mean?
-    </div>-->
+    </div>
     <div slot="explain">
         The clues are "me" (Natsumi), "ny" (New York) and "on". The signal meter has five bars, and assigning each
         letter of the clues to the bars lit up in the same line, you can form the answer, "money".
